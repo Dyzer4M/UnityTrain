@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C0994C93-2EF4-92FD-EA51-E11E1EB43B52}</ProjectGuid>
+    <ProjectGuid>{4B0F52E0-DBCB-24C5-C0A0-864768581351}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,21 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Manager\MapManager.cs" />
+    <Compile Include="Assets\Manager\UI_BATTLE.cs" />
+    <Compile Include="Assets\Script\DrawPath.cs" />
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\Enemy\Node.cs" />
     <Compile Include="Assets\Script\Manager\EnemyManager.cs" />
     <Compile Include="Assets\Script\Manager\TowerManager.cs" />
+    <Compile Include="Assets\Script\TimeBehavior.cs" />
+    <Compile Include="Assets\Script\Timer.cs" />
     <Compile Include="Assets\Script\Tower\TowerBase.cs" />
     <Compile Include="Assets\Script\Tower\TowerCube.cs" />
     <Compile Include="Assets\Script\Tower\TowerData.cs" />
-    <Compile Include="Assets\Script\other\DrawPath.cs" />
-    <Compile Include="Assets\Script\other\MapManager.cs" />
-    <Compile Include="Assets\Script\other\TimeBehavior.cs" />
-    <Compile Include="Assets\Script\other\Timer.cs" />
-    <Compile Include="Assets\Script\other\UI_BATTLE.cs" />
-    <None Include="Assets\other\Course Library\_Source_Files\_LICENSE.txt" />
-    <None Include="Assets\other\Course Library\_Source_Files\Map\202005281026.txt" />
-    <None Include="Assets\other\Course Library\_Source_Files\Map\202005300958.txt" />
+    <None Include="Assets\Course Library\_Source_Files\_LICENSE.txt" />
+    <None Include="Assets\Course Library\_Source_Files\Map\202005300958.txt" />
+    <None Include="Assets\Course Library\_Source_Files\Map\202005281026.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unity 2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -607,43 +607,43 @@
       <HintPath>D:/unity 2019/Unity/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/unity 2019/实训/UnityTrain-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/unity 2019/实训/UnityTrain-master/UnityTrain/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
