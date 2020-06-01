@@ -4,21 +4,19 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 public class Enemy :MonoBehaviour
 {
     // Start is called before the first frame update
-
-    private NavMeshAgent agent;
-
     public Node currentDesc;
-
+    private NavMeshAgent agent;
     private void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
     void Start()
     {
+        
         setDesc(currentDesc.gameObject.transform.position);
     }
     void Update()
@@ -51,4 +49,5 @@ public class Enemy :MonoBehaviour
         EnemyManager.EnemyAliveCount--;
         //受伤害以及怪物死亡
     }
+    
 }
