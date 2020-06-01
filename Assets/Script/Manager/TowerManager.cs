@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class TowerManager : MonoBehaviour
@@ -11,8 +12,17 @@ public class TowerManager : MonoBehaviour
 
 
     //被选择的塔（目前只设置了一种）
-    public TowerData selectedTower;
-    public int money;
+    private TowerData selectedTower;
+
+    //金钱
+    public int money = 1000;
+    public Text Moneytext;
+    public Animator moneyreduce;
+    void MoneyUpdate(int cost)
+    {
+        money -= cost;
+        Moneytext.text="$"+money;
+    }
     private void Update()
     {
         //检测鼠标按下
@@ -34,14 +44,17 @@ public class TowerManager : MonoBehaviour
                     {
                         if (money >= selectedTower.cost)
                         {
-                            money -= selectedTower.cost;
+                            MoneyUpdate(selectedTower.cost);
+                            moneyreduce.SetTrigger("test");
                             cube.BuildTower(selectedTower.TowerPrefab);
                         }
-                    }
-                    else
-                    {
+                        else
+                        {
                         //钱不够添加UI
+                            moneyreduce.SetTrigger("nomoney");
+                        }
                     }
+                    
                 }
             }
         }
