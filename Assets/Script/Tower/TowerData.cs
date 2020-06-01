@@ -10,7 +10,10 @@ public class TowerData
     public int cost;
     public GameObject UpgradePrefab;
     public int Upcost;
- 
+    public TowerType type;
 }
-
+public enum TowerType
+{
+    StandardTower
+}
 
