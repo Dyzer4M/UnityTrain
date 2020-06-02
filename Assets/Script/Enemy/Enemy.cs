@@ -10,6 +10,7 @@ public class Enemy :MonoBehaviour
     // Start is called before the first frame update
     public Node currentDesc;
     private NavMeshAgent agent;
+
     private void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
@@ -26,7 +27,8 @@ public class Enemy :MonoBehaviour
 
     void Move()
     {
-        if (currentDesc.isEnd)
+        //到达终点
+        if (currentDesc.isEnd && (Vector3.SqrMagnitude(this.gameObject.transform.position - agent.destination) < agent.stoppingDistance))
         {
             EnemyArriveEnd();
         }
@@ -47,7 +49,12 @@ public class Enemy :MonoBehaviour
     void EnemyArriveEnd()
     {
         EnemyManager.EnemyAliveCount--;
-        //受伤害以及怪物死亡
+
+        EnemyHealth health = gameObject.GetComponent<EnemyHealth>();
+
+
+        if (health.isAlive())
+            Destroy(gameObject);
     }
     
 }

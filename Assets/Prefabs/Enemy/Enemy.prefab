@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4226705604516578249}
   - component: {fileID: 4226705604516578248}
   - component: {fileID: 4226705604516578251}
-  - component: {fileID: 4226705604516578250}
   - component: {fileID: 4226705604516578252}
   - component: {fileID: 4226705604516578253}
   - component: {fileID: 218633479708912849}
@@ -97,7 +96,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.48
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4226705604516578251
 Rigidbody:
@@ -115,20 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &4226705604516578250
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4226705604516578255}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4226705604516578252
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -148,7 +133,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4226705604516578253
