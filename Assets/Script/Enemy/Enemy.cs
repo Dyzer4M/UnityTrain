@@ -22,7 +22,12 @@ public class Enemy :MonoBehaviour
     }
     void Update()
     {
-        Move();
+        EnemyHealth enemyHp = gameObject.GetComponent<EnemyHealth>();
+        if(enemyHp.isAlive()) Move();//在活着的时候才动
+        else
+        {
+            agent.speed = 0;//原地死亡
+        }
     }
 
     void Move()

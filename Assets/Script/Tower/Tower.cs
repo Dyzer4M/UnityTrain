@@ -33,8 +33,14 @@ public class Tower : MonoBehaviour
                 bulletGo.AddComponent<Bullet>();
             }
             bullet.SetTarget(attackTarget);
+            bullet.SetFather(this) ;
             countDown = 1 / bulletRate;
         }
+    }
+
+    public void ResetCountDown()
+    {
+        countDown = 0;
     }
     private void OnDrawGizmosSelected()
     {
@@ -51,8 +57,12 @@ public class Tower : MonoBehaviour
             float distance =Vector3.Distance(enemy.transform.position, this.transform.position);
             if (distance < minDistance)
             {
-                minDistance = distance;
-                nearnestEnemy = enemy.transform;
+                EnemyHealth targetEnemyHealth = enemy.GetComponent<EnemyHealth>();
+                if (targetEnemyHealth.isAlive())//防止子弹攻击空血但仍未destroy的敌人
+                {
+                    minDistance = distance;
+                    nearnestEnemy = enemy.transform;
+                }
             }
         }
         if (minDistance < attackRange)
