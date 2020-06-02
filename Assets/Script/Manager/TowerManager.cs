@@ -20,6 +20,8 @@ public class TowerManager : MonoBehaviour
 
     //更新面板
     public GameObject UpgradeCanves;
+    //塔的隐藏面板按钮
+    public GameObject TowerToggle;
     //场景中被选中的塔
     private TowerCube SelectedTowerObject;
     public Button UpButton;
@@ -96,7 +98,11 @@ public class TowerManager : MonoBehaviour
         SelectedTowerObject.DestroyTower();
         HideUpgradeUI();
     }
-
+    public void OnTowerChoseButtonDown()
+    {
+        TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
+        
+    }
     //升级画布UI
     void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade = false)
     {
