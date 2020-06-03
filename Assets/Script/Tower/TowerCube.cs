@@ -18,10 +18,12 @@ public class TowerCube : MonoBehaviour
     private Renderer render;
     private Color initColor;
     private Color changeColor=Color.blue;
+    public Canvas build;//创建不同塔的界面
     private void Start()
     {
         render = GetComponent<MeshRenderer>();
         initColor = render.material.color;
+        //build.enabled = false;
     }
 
     public void BuildTower(TowerData tower)
@@ -59,4 +61,9 @@ public class TowerCube : MonoBehaviour
     {
         render.material.color = initColor;
     }
+    private void OnMouseDown()
+    {
+        
+    }
+    
 }

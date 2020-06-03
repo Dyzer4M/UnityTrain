@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour
     public void BeforeDestroy()
     {
         //游戏中一般都有死亡动画，不应该在currentHealth归零瞬间destroy
-        EnemyManager.EnemyAliveCount--;
+        
     }
     public bool isAlive()
     {

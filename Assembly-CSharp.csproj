@@ -70,7 +70,6 @@
     <Compile Include="Assets\Script\Enemy\Node.cs" />
     <Compile Include="Assets\Script\Enemy\TimeBehavior.cs" />
     <Compile Include="Assets\Script\Enemy\Timer.cs" />
-    <Compile Include="Assets\Script\GameInterface\BeginGame.cs" />
     <Compile Include="Assets\Script\GameInterface\LoadScene.cs" />
     <Compile Include="Assets\Script\GameInterface\MenuOption.cs" />
     <Compile Include="Assets\Script\HpBarFace.cs" />

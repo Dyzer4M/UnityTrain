@@ -11,8 +11,9 @@ public class TowerManager : MonoBehaviour
     public TowerData StandardTowerData;
 
     //被选择的塔属性（目前只设置了一种）
-    private TowerData selectedTower;
-
+    public TowerData selectedTower1;
+    public TowerData selectedTower2;
+    private Tower buildTower;
     //金钱
     public int money = 1000;
     public Text Moneytext;
@@ -22,9 +23,11 @@ public class TowerManager : MonoBehaviour
     public GameObject UpgradeCanves;
     //塔的隐藏面板按钮
     public GameObject TowerToggle;
+
     //场景中被选中的塔
     private TowerCube SelectedTowerObject;
     public Button UpButton;
+    private TowerData selectedTower;
     void MoneyUpdate(int cost)
     {
         money -= cost;
@@ -88,7 +91,21 @@ public class TowerManager : MonoBehaviour
             selectedTower = StandardTowerData;
         }
     }
-   public void OnUpgradeButtonDown()
+    public void OnStandardSelected1(bool ToggleisOn)
+    {
+        if (ToggleisOn)
+        {
+            selectedTower = selectedTower1;
+        }
+    }
+    public void OnStandardSelected2(bool ToggleisOn)
+    {
+        if (ToggleisOn)
+        {
+            selectedTower = selectedTower2;
+        }
+    }
+    public void OnUpgradeButtonDown()
     {
         SelectedTowerObject.UpgradeTower();
         HideUpgradeUI();
@@ -103,6 +120,7 @@ public class TowerManager : MonoBehaviour
         TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
         
     }
+  
     //升级画布UI
     void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade = false)
     {
