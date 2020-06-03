@@ -28,6 +28,9 @@ public class Wave :TimeBehavior
     public float waveDelay = 1;
 
     public Action m_callBack;
+
+    public Action<Enemy> m_aliveCallBack;
+    public Action<Enemy> m_deadCallBack;
     private void Awake()
     {
         currentSpawn = 0;
@@ -51,10 +54,18 @@ public class Wave :TimeBehavior
         enemyToSpawn.transform.position=spawnList[currentSpawn].startNode.transform.position;
 
         Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
+
+        //enemy.deadCallback += enemyDie;
         enemy.currentDesc = spawnList[currentSpawn].startNode.nextNode;
-        EnemyManager.EnemyAliveCount++;
+
         currentSpawn++;
-        if(currentSpawn < spawnList.Count)
+        if (m_aliveCallBack != null)
+            enemy.aliveCallback += m_aliveCallBack;
+        if (m_deadCallBack != null)
+            enemy.deadCallback += m_deadCallBack;
+        
+
+        if (currentSpawn < spawnList.Count)
         {
             this.StartTimer(new Timer(spawnList[currentSpawn].spawnDelay, SpawnCurrent));
             if (m_callBack != null)
@@ -65,7 +76,6 @@ public class Wave :TimeBehavior
 
 
     }
-    
 
 
 }

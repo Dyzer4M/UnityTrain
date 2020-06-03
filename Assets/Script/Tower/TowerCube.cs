@@ -23,7 +23,7 @@ public class TowerCube : MonoBehaviour
     {
         render = GetComponent<MeshRenderer>();
         initColor = render.material.color;
-        build.enabled = false;
+        //build.enabled = false;
     }
 
     public void BuildTower(TowerData tower)

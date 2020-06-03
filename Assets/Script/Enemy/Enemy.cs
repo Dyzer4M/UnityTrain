@@ -11,22 +11,45 @@ public class Enemy :MonoBehaviour
     public Node currentDesc;
     private NavMeshAgent agent;
 
+    public Action<Enemy> aliveCallback;
+    public Action<Enemy> deadCallback;
+
+    public bool isArrive = false;
+
     private void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
-    void Start()
+    protected virtual void Start()
     {
-        
+       // EnemyManager.EnemyAliveCount++;
         setDesc(currentDesc.gameObject.transform.position);
+        if(aliveCallback!=null)
+        {
+            Enemy enemy = GetComponent<Enemy>();
+            aliveCallback(enemy);
+        }
     }
-    void Update()
+    protected virtual void Update()
     {
         EnemyHealth enemyHp = gameObject.GetComponent<EnemyHealth>();
         if(enemyHp.isAlive()) Move();//在活着的时候才动
         else
         {
             agent.speed = 0;//原地死亡
+        }
+
+
+    }
+
+
+    protected  virtual  void OnDestroy()
+    {
+        //EnemyManager.EnemyAliveCount--;
+        if(deadCallback!=null)
+        {
+            Enemy enemy = GetComponent<Enemy>();
+            deadCallback(enemy);
         }
     }
 
@@ -53,13 +76,17 @@ public class Enemy :MonoBehaviour
     //怪物抵达终点所做处理
     void EnemyArriveEnd()
     {
-        EnemyManager.EnemyAliveCount--;
+       // EnemyManager.EnemyAliveCount--;
 
         EnemyHealth health = gameObject.GetComponent<EnemyHealth>();
 
 
         if (health.isAlive())
+        {
+            isArrive = true;
             Destroy(gameObject);
+            
+        }
     }
     
 }
