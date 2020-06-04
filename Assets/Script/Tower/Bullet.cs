@@ -25,12 +25,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyHealth enemyHp = mTarget.GetComponent<EnemyHealth>();
-        if (mTarget == null || !enemyHp.isAlive()) //增加了isAlive的判定
+        if (mTarget == null || !mTarget.GetComponent<EnemyHealth>().isAlive()) //增加了isAlive的判定
         {
             fatherTower.ResetCountDown();//让塔的冷却降为0
             Destroy(gameObject);
+            return;
         }
+
         Vector3 dir = mTarget.position - this.transform.position;
         if (Vector3.Distance(mTarget.position, this.transform.position) < speed * Time.deltaTime) {
             HitTarget();
