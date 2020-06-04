@@ -181,8 +181,8 @@ GameObject:
   - component: {fileID: 4226705604516578248}
   - component: {fileID: 4226705604516578251}
   - component: {fileID: 4226705604516578252}
-  - component: {fileID: 4226705604516578253}
   - component: {fileID: 218633479708912849}
+  - component: {fileID: 6777301896505794709}
   m_Layer: 0
   m_Name: EnemyBlob
   m_TagString: Enemy
@@ -304,21 +304,6 @@ NavMeshAgent:
   m_BaseOffset: 0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4226705604516578253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4226705604516578255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c60c4bf44f6f4a4f8fe110bc956ff2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentDesc: {fileID: 0}
-  anim: {fileID: 0}
-  isArrive: 0
 --- !u!114 &218633479708912849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,9 +316,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9390b5a137a50340ac7a948fc162139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   initHealth: 100
   hpBar: {fileID: 1744338493265841870}
   hpBarShowDamage: {fileID: 4929558738126332290}
+--- !u!114 &6777301896505794709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226705604516578255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5510d41ddbc0f446843f46432f16da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDesc: {fileID: 0}
+  isArrive: 0
 --- !u!1 &4940506361609748750
 GameObject:
   m_ObjectHideFlags: 0

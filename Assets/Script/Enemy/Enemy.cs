@@ -5,17 +5,24 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+
+
+/// <summary>
+/// 已经派生出不同怪物的类，若需要修改最好按需修改这个类或者修改其子类
+/// </summary>
 public class Enemy :MonoBehaviour
 {
     // Start is called before the first frame update
-    public Node currentDesc;
+    [HideInInspector]
+    public  Node currentDesc;
     private NavMeshAgent agent;
     public Action<Enemy> aliveCallback;
     public Action<Enemy> deadCallback;
 
+    [HideInInspector]
     public bool isArrive = false;
 
-    private void Awake()
+    protected void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
 
