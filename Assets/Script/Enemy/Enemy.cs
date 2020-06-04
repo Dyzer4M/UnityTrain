@@ -10,7 +10,6 @@ public class Enemy :MonoBehaviour
     // Start is called before the first frame update
     public Node currentDesc;
     private NavMeshAgent agent;
-
     public Action<Enemy> aliveCallback;
     public Action<Enemy> deadCallback;
 
@@ -19,6 +18,7 @@ public class Enemy :MonoBehaviour
     private void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
+
     }
     protected virtual void Start()
     {
@@ -33,7 +33,12 @@ public class Enemy :MonoBehaviour
     protected virtual void Update()
     {
         EnemyHealth enemyHp = gameObject.GetComponent<EnemyHealth>();
-        if(enemyHp.isAlive()) Move();//在活着的时候才动
+        if (enemyHp.isAlive())
+        {
+            
+            Move();//在活着的时候才动
+
+        }
         else
         {
             agent.speed = 0;//原地死亡

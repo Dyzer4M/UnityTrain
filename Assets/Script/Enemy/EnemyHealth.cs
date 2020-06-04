@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
+    public Animator anim;
     public float initHealth = 100;
     private float currentHealth, healthBeforeDamageShow, hpBarShowDamageDownSpeed=0, timeForhpBarShowDamageDown = 0.5f, timeBeginToDown;
     public Image hpBar, hpBarShowDamage;
@@ -12,11 +13,13 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = initHealth;
         healthBeforeDamageShow = currentHealth;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(currentHealth<healthBeforeDamageShow)//红血显示需要下降
         {
             healthBeforeDamageShow -= hpBarShowDamageDownSpeed * Time.deltaTime;
@@ -54,7 +57,8 @@ public class EnemyHealth : MonoBehaviour
     public void BeforeDestroy()
     {
         //游戏中一般都有死亡动画，不应该在currentHealth归零瞬间destroy
-        
+        anim.SetBool("Die", true);
+
     }
     public bool isAlive()
     {
