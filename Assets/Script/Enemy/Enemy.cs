@@ -10,6 +10,8 @@ using UnityEngine.UI;
 /// <summary>
 /// 已经派生出不同怪物的类，若需要修改最好按需修改这个类或者修改其子类
 /// </summary>
+/// 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy :MonoBehaviour
 {
     // Start is called before the first frame update

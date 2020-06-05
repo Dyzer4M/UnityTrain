@@ -13,11 +13,21 @@ public class TimeBehavior : MonoBehaviour
     /// 增加新的计时器
     /// </summary>
     /// <param name="newTimer">需要增加的计时器</param>
-    protected void StartTimer(Timer newTimer)
+    public  void StartTimer(Timer newTimer)
     {
         m_ActiveTimers.Add(newTimer);
 
     }
+
+
+    public void StopAllTimer()
+    {
+        for(int i = 0; i < m_ActiveTimers.Count; i++)
+        {
+            StopTimer(m_ActiveTimers[i]);
+        }
+    }
+
 
     /// <summary>
     /// 移除计时器

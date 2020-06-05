@@ -6621,6 +6621,10 @@ MonoBehaviour:
       type: 3}
     spawnDelay: 0
     startNode: {fileID: 1932279485}
+  - enemyPrefab: {fileID: 681017406254633525, guid: 09fd0a16f6134b943a9a32b6f84c4937,
+      type: 3}
+    spawnDelay: 0
+    startNode: {fileID: 1932279485}
   waveDelay: 1
 --- !u!1 &443779288
 GameObject:
