@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    private TowerCube cubeon;
     private float attackRange=4;
     public string enemyTag = "Enemy";
     public Transform attackTarget;
@@ -12,6 +13,11 @@ public class Tower : MonoBehaviour
     public float rotSpeed = 10;
     public float bulletRate = 2f;//发射子弹的速度
     private float countDown = 0;
+
+    public void SetCube(TowerCube cube)
+    {
+        this.cubeon = cube;
+    }
     // Start is called before the first frame update
     void Start()
     {

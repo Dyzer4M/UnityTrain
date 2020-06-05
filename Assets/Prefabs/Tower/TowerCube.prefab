@@ -109,4 +109,6 @@ MonoBehaviour:
   TowerCubeOn: {fileID: 0}
   isUpgrade: 0
   buildeffect: {fileID: 0}
-  build: {fileID: 0}
+  InfectedColor: {r: 1, g: 0, b: 0, a: 1}
+  buildCanves: {fileID: 0}
+  CubeHp: 100

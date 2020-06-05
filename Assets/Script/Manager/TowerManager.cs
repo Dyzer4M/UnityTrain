@@ -9,13 +9,13 @@ public class TowerManager : MonoBehaviour
 {
     //塔的种类
     public TowerData StandardTowerData;
-
-    //被选择的塔属性（目前只设置了一种）
     public TowerData selectedTower1;
     public TowerData selectedTower2;
-    private Tower buildTower;
+    //被选择的塔属性（目前只设置了一种）
+    public  TowerData selectedTower;
+
     //金钱
-    public int money = 1000;
+    public double money = 1000;
     public Text Moneytext;
     public Animator moneyreduce;
 
@@ -27,7 +27,6 @@ public class TowerManager : MonoBehaviour
     //场景中被选中的塔
     private TowerCube SelectedTowerObject;
     public Button UpButton;
-    private TowerData selectedTower;
     void MoneyUpdate(int cost)
     {
         money -= cost;
@@ -50,7 +49,11 @@ public class TowerManager : MonoBehaviour
                 {
                     //得到点击的cube
                     TowerCube cube = hit.collider.GetComponent<TowerCube>();
-                    if (selectedTower!=null && cube.TowerCubeOn == null)
+                    //建造条件有三个必须满足
+                    //选了塔
+                    //选中的cube没有被使用
+                    //选中的cube没有被感染
+                    if (selectedTower!=null && cube.TowerCubeOn == null && cube.CubeHp>0)
                     {
                         if (money >= selectedTower.cost)
                         {
@@ -107,11 +110,25 @@ public class TowerManager : MonoBehaviour
     }
     public void OnUpgradeButtonDown()
     {
-        SelectedTowerObject.UpgradeTower();
+        if (money >= selectedTower.Upcost)
+        {
+            MoneyUpdate(selectedTower.Upcost);
+            moneyreduce.SetTrigger("test");
+            SelectedTowerObject.UpgradeTower();
+        }
         HideUpgradeUI();
     }
     public void OnDestroyButtonDown()
     {
+        if (SelectedTowerObject.isUpgrade)
+        {
+            MoneyUpdate(-(selectedTower.cost + selectedTower.Upcost) / 2);
+        }
+        else
+        {
+            MoneyUpdate(-selectedTower.cost / 2);
+        }
+        moneyreduce.SetTrigger("test");
         SelectedTowerObject.DestroyTower();
         HideUpgradeUI();
     }

@@ -6407,7 +6407,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22138
+  m_Name: pb_Mesh15280
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7323,7 +7323,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21760
+  m_Name: pb_Mesh14902
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8263,7 +8263,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22108
+  m_Name: pb_Mesh15250
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9408,7 +9408,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21790
+  m_Name: pb_Mesh14932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10082,7 +10082,6 @@ MonoBehaviour:
     UpgradePrefab: {fileID: 3925794365896718582, guid: fc4bb377ab9f23349bb99aa343276fdb,
       type: 3}
     Upcost: 100
-    type: 0
   selectedTower1:
     TowerPrefab: {fileID: 9041777899586917625, guid: 2c4dbe4000f5c2741b4de720d5b6f478,
       type: 3}
@@ -10090,7 +10089,6 @@ MonoBehaviour:
     UpgradePrefab: {fileID: 3925794365896718582, guid: fc4bb377ab9f23349bb99aa343276fdb,
       type: 3}
     Upcost: 20
-    type: 0
   selectedTower2:
     TowerPrefab: {fileID: 1123341877721379728, guid: c644e827c6b98c7409a0cdb0240bd47d,
       type: 3}
@@ -10098,7 +10096,11 @@ MonoBehaviour:
     UpgradePrefab: {fileID: 3925794365896718582, guid: fc4bb377ab9f23349bb99aa343276fdb,
       type: 3}
     Upcost: 10
-    type: 0
+  selectedTower:
+    TowerPrefab: {fileID: 0}
+    cost: 0
+    UpgradePrefab: {fileID: 0}
+    Upcost: 0
   money: 1000
   Moneytext: {fileID: 1393677674}
   moneyreduce: {fileID: 1393677676}
@@ -10419,7 +10421,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22160
+  m_Name: pb_Mesh15302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10818,7 +10820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1658823744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TowerCube : MonoBehaviour
-{
-    
-    [HideInInspector]
-    //被选中的cube
+{   
+    [HideInInspector] //被选中的cube的塔
     public GameObject TowerCubeOn;
     //塔属性
     private TowerData towerdata;
@@ -18,19 +17,48 @@ public class TowerCube : MonoBehaviour
     private Renderer render;
     private Color initColor;
     private Color changeColor=Color.blue;
-    public Canvas build;//创建不同塔的界面
+    public Color InfectedColor = Color.red;
+    public Canvas buildCanves;//创建不同塔的界面
+
+    //cube的感染值
+    public int CubeHp = 100;
+    public void ChangeHP(int damage)
+    {
+        CubeHp -= damage;
+        if (CubeHp < 0)
+        {
+            CubeHp = 0;
+        }
+    }
+
     private void Start()
     {
         render = GetComponent<MeshRenderer>();
         initColor = render.material.color;
         //build.enabled = false;
     }
-
+    private void Update()
+    {
+        //如果被感染了，让脚本失活，cube变色
+        if (CubeHp <= 0)
+        {
+            render.material.color = InfectedColor;
+            if(TowerCubeOn!=null)
+                TowerCubeOn.GetComponent<Tower>().enabled = false;
+        }
+        else
+        {
+            render.material.color = initColor;
+            if (TowerCubeOn != null)
+                TowerCubeOn.GetComponent<Tower>().enabled = true ;
+        }
+    }
     public void BuildTower(TowerData tower)
     {
         this.towerdata = tower;
         isUpgrade = false;
-        TowerCubeOn = GameObject.Instantiate(towerdata.TowerPrefab, transform.position, Quaternion.identity);
+        TowerCubeOn = GameObject.Instantiate(towerdata.TowerPrefab, this.transform.position, Quaternion.identity);
+        
         //UI
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
