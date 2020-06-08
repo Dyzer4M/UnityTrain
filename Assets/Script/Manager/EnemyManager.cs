@@ -19,8 +19,8 @@ public class EnemyManager : TimeBehavior
     //每一波怪物生成之前的延迟
     public float waveDelay = 1;
 
-
-
+    //界面
+    public GameManager CanvesManager;
     private void Awake()
     {
       //  currentSpawn = 0;
@@ -100,10 +100,13 @@ public class EnemyManager : TimeBehavior
     public void GameOver()
     {
         Debug.Log("游戏失败");
+        CanvesManager.lose();
     }
     public void GameWin()
     {
         Debug.Log("游戏胜利");
+        CanvesManager.win();
+
     }
 
 }

@@ -41,7 +41,8 @@ public class TowerCube : MonoBehaviour
         {
             Vector3 nowRGB = new Vector3(render.material.color.r, render.material.color.g, render.material.color.b);
             Vector3 newRGB = new Vector3((100 - CubeHp) / 100.0f, CubeHp / 100.0f, 0);
-            render.material.color = new Color(Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).x, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).y, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).z);
+            //render.material.color = new Color(Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).x, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).y, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).z);
+            render.material.color = new Color(newRGB.x, newRGB.y, newRGB.z);
 
         }
         if (CubeHp <= 0)
