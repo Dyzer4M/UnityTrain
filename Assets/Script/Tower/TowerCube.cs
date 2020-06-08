@@ -90,17 +90,8 @@ public class TowerCube : MonoBehaviour
     }
     public void HpSetting(float num)
     {
-        if (CubeHp < 0)
-        {
-            CubeHp = 0;
-            return;
-        }
-        if (CubeHp > 100)
-        {
-            CubeHp = 100;
-            return;
-        }
-        CubeHp += num;
+        
+        CubeHp=Mathf.Clamp(CubeHp += num, 0, 100);
     }
     private void OnMouseEnter()
     {
