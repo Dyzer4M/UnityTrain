@@ -113,7 +113,7 @@ MonoBehaviour:
   InfectedColor: {r: 1, g: 0, b: 0, a: 1}
   buildCanves: {fileID: 0}
   damage: 10
-  CubeHp: 0
+  CubeHp: 100
 --- !u!54 &3060442273320969716
 Rigidbody:
   m_ObjectHideFlags: 0

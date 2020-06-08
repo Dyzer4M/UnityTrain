@@ -16,24 +16,11 @@ public class TowerCube : MonoBehaviour
     private Renderer render;
     private Color initColor;
     private Color changeColor = Color.blue;
-    private Color CurrentColor;
     public Color InfectedColor = Color.red;
     public Canvas buildCanves;//创建不同塔的界面
     //cube的感染值
-    public float damage = 10;
-    public float CubeHp = 0.0f;
-    //public void ChangeHP(int damage)
-    //{
-    //    CubeHp -= damage;
-    //    if (CubeHp < 0)
-    //    {
-    //        CubeHp = 0;
-    //    }
-    //}
-    private void HpDamage()
-    {
-        this.CubeHp -= 1;
-    }
+    public float damage = -10;
+    public float CubeHp = 100.0f;
     private void Start()
     {
         render = GetComponent<MeshRenderer>();
@@ -49,14 +36,17 @@ public class TowerCube : MonoBehaviour
             time = 0;
             HpSetting(damage);
         }
-        //如果被感染了，让脚本失活，cube变色
+        //如果被感染了，cube变色
         if (CubeHp <= 100)
         {
             Vector3 nowRGB = new Vector3(render.material.color.r, render.material.color.g, render.material.color.b);
-            Vector3 newRGB = new Vector3(CubeHp / 100.0f, (100 - CubeHp) / 100.0f, 0);
+            Vector3 newRGB = new Vector3((100 - CubeHp) / 100.0f, CubeHp / 100.0f, 0);
             render.material.color = new Color(Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).x, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).y, Vector3.Lerp(nowRGB, newRGB, Time.deltaTime).z);
+
+        }
+        if (CubeHp <= 0)
+        {
             if (TowerCubeOn != null)
-            //TowerCubeOn.GetComponent<Tower>().enabled = false;
                 Destroy(TowerCubeOn);
         }
     }
@@ -90,8 +80,8 @@ public class TowerCube : MonoBehaviour
     }
     public void HpSetting(float num)
     {
-        
-        CubeHp=Mathf.Clamp(CubeHp += num, 0, 100);
+
+        CubeHp = Mathf.Clamp(CubeHp += num, 0, 100);
     }
     private void OnMouseEnter()
     {
@@ -103,7 +93,7 @@ public class TowerCube : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        
+
     }
-    
+
 }

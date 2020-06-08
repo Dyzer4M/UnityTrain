@@ -31,7 +31,6 @@ public class Enemy :MonoBehaviour
     }
     protected virtual void Start()
     {
-       // EnemyManager.EnemyAliveCount++;
         setDesc(currentDesc.gameObject.transform.position);
         if(aliveCallback!=null)
         {
@@ -59,7 +58,6 @@ public class Enemy :MonoBehaviour
 
     protected  virtual  void OnDestroy()
     {
-        //EnemyManager.EnemyAliveCount--;
         if(deadCallback!=null)
         {
             Enemy enemy = GetComponent<Enemy>();
