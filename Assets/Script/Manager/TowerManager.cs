@@ -7,6 +7,9 @@ using UnityEngine.UI;
 [System.Serializable]
 public class TowerManager : MonoBehaviour
 {
+    public TimescaleManager timeChanger;
+    public bool workOnBuild = false;
+    public bool workOnUp = false;
     //塔的种类
     public TowerData StandardTowerData;
     public TowerData selectedTower1;
@@ -135,12 +138,15 @@ public class TowerManager : MonoBehaviour
     public void OnTowerChoseButtonDown()
     {
         TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
-        
+        workOnBuild = !workOnBuild;
+        updateTimescale();
     }
   
     //升级画布UI
     void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade = false)
     {
+        workOnUp = true;
+        updateTimescale();
         //显示面板
         UpgradeCanves.SetActive(true);
         UpgradeCanves.transform.position = pos;
@@ -149,8 +155,14 @@ public class TowerManager : MonoBehaviour
     }
     void HideUpgradeUI()
     {
+        workOnUp = false;
+        updateTimescale();
         UpgradeCanves.SetActive(false);
     }
-
+    void updateTimescale()
+    {
+        timeChanger.working = (workOnBuild || workOnUp);
+        timeChanger.UpdateTimescale();
+    }
 
 }
