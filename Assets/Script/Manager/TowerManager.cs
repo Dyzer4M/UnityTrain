@@ -95,6 +95,11 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = StandardTowerData;
+            TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1.5f, 1.5f, 0);
+        }
+        else
+        {
+            TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1, 1, 0);
         }
     }
     public void OnStandardSelected1(bool ToggleisOn)
@@ -102,6 +107,11 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = selectedTower1;
+            TowerToggle.transform.GetChild(1).transform.localScale=new Vector3(1.5f, 1.5f, 0);
+        }
+        else
+        {
+            TowerToggle.transform.GetChild(1).transform.localScale = new Vector3(1, 1, 0);
         }
     }
     public void OnStandardSelected2(bool ToggleisOn)
@@ -109,6 +119,11 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = selectedTower2;
+            TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1.5f, 1.5f, 0);
+        }
+        else
+        {
+            TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1, 1, 0);
         }
     }
     public void OnUpgradeButtonDown()
