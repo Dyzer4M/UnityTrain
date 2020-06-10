@@ -17,26 +17,42 @@ public class TowerManager : MonoBehaviour
     //被选择的塔属性（目前只设置了一种）
     public  TowerData selectedTower;
 
-    //金钱
-    public double money;
-    public Text Moneytext;
-    public Animator moneyreduce;
+    //ATP
+    public double ATP;
+    public Text ATPtext;
+    public Animator ATPreduce;
+    private float time=0;
+    public int ATPincreasetime;
 
     //更新面板
     public GameObject UpgradeCanves;
     //塔的隐藏面板按钮
     public GameObject TowerToggle;
-
+    public GameObject TowerDescription;
     //场景中被选中的塔
     private TowerCube SelectedTowerObject;
     public Button UpButton;
     void MoneyUpdate(int cost)
     {
-        money -= cost;
-        Moneytext.text="ATP "+money;
+        ATP -= cost;
+        ATPtext.text="ATP "+ATP;
+        ATPreduce.SetTrigger("test");
+    }
+
+    void TowerDescriUpdate(TowerData tower)
+    {
+        TowerDescription.SetActive(true);
+        TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
     }
     private void Update()
     {
+        time += Time.deltaTime;
+        if (time >= ATPincreasetime)
+        {
+            time = 0;
+            MoneyUpdate(-50);
+        }
+
         //检测鼠标按下
         if (Input.GetMouseButtonDown(0))
         {
@@ -58,17 +74,17 @@ public class TowerManager : MonoBehaviour
                     //选中的cube没有被感染
                     if (selectedTower!=null && cube.TowerCubeOn == null && cube.CubeHp>0)
                     {
-                        if (money >= selectedTower.cost)
+                        if (ATP >= selectedTower.cost)
                         {
                             //建塔
                             MoneyUpdate(selectedTower.cost);
-                            moneyreduce.SetTrigger("test");
+                          
                             cube.BuildTower(selectedTower);
                         }
                         else
                         {
                         //钱不够
-                            moneyreduce.SetTrigger("nomoney");
+                            ATPreduce.SetTrigger("nomoney");
                         }
                     }
                     //有炮塔   做升级或拆迁处理
@@ -95,10 +111,12 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = StandardTowerData;
+            TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1, 1, 0);
         }
     }
@@ -107,10 +125,12 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = selectedTower1;
+            TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(1).transform.localScale=new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(1).transform.localScale = new Vector3(1, 1, 0);
         }
     }
@@ -119,19 +139,20 @@ public class TowerManager : MonoBehaviour
         if (ToggleisOn)
         {
             selectedTower = selectedTower2;
+            TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1, 1, 0);
         }
     }
     public void OnUpgradeButtonDown()
     {
-        if (money >= selectedTower.Upcost)
+        if (ATP >= selectedTower.Upcost)
         {
             MoneyUpdate(selectedTower.Upcost);
-            moneyreduce.SetTrigger("test");
             SelectedTowerObject.UpgradeTower();
         }
         HideUpgradeUI();
@@ -146,13 +167,16 @@ public class TowerManager : MonoBehaviour
         {
             MoneyUpdate(-selectedTower.cost / 2);
         }
-        moneyreduce.SetTrigger("test");
         SelectedTowerObject.DestroyTower();
         HideUpgradeUI();
     }
     public void OnTowerChoseButtonDown()
     {
         TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
+        for(int i = 0; i < TowerToggle.transform.childCount; i++)
+        {
+            TowerToggle.transform.GetChild(i).GetComponent<Toggle>().isOn = false;
+        }
         workOnBuild = !workOnBuild;
         updateTimescale();
     }

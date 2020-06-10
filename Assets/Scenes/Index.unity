@@ -7574,6 +7574,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &535339327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535339328}
+  - component: {fileID: 535339330}
+  - component: {fileID: 535339329}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &535339328
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535339327}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1708785550}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &535339329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535339327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.09411763, g: 0.32914713, b: 0.6509804, a: 0.24705882}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &535339330
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535339327}
+  m_CullTransparentMesh: 0
 --- !u!1 &576413073
 GameObject:
   m_ObjectHideFlags: 0
@@ -9920,6 +9994,7 @@ RectTransform:
   - {fileID: 1393677673}
   - {fileID: 238144146}
   - {fileID: 890669942}
+  - {fileID: 1708785550}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -11036,7 +11111,7 @@ GameObject:
   - component: {fileID: 1393677674}
   - component: {fileID: 1393677676}
   m_Layer: 5
-  m_Name: Money
+  m_Name: ATP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11168,6 +11243,9 @@ MonoBehaviour:
   workOnBuild: 0
   workOnUp: 0
   StandardTowerData:
+    damage: 10
+    range: 0
+    speed: 0
     TowerPrefab: {fileID: 8863616953061524457, guid: ae97ee7f134b2bf469466e2b4531bc19,
       type: 3}
     cost: 50
@@ -11175,6 +11253,9 @@ MonoBehaviour:
       type: 3}
     Upcost: 100
   selectedTower1:
+    damage: 0
+    range: 0
+    speed: 0
     TowerPrefab: {fileID: 9041777899586917625, guid: 2c4dbe4000f5c2741b4de720d5b6f478,
       type: 3}
     cost: 10
@@ -11182,6 +11263,9 @@ MonoBehaviour:
       type: 3}
     Upcost: 20
   selectedTower2:
+    damage: 0
+    range: 0
+    speed: 0
     TowerPrefab: {fileID: 1123341877721379728, guid: c644e827c6b98c7409a0cdb0240bd47d,
       type: 3}
     cost: 5
@@ -11189,15 +11273,20 @@ MonoBehaviour:
       type: 3}
     Upcost: 10
   selectedTower:
+    damage: 0
+    range: 0
+    speed: 0
     TowerPrefab: {fileID: 0}
     cost: 0
     UpgradePrefab: {fileID: 0}
     Upcost: 0
-  money: 500
-  Moneytext: {fileID: 1393677674}
-  moneyreduce: {fileID: 1393677676}
+  ATP: 500
+  ATPtext: {fileID: 1393677674}
+  ATPreduce: {fileID: 1393677676}
+  ATPincreasetime: 5
   UpgradeCanves: {fileID: 943173200}
   TowerToggle: {fileID: 1544066052}
+  TowerDescription: {fileID: 1708785549}
   UpButton: {fileID: 443779290}
 --- !u!1 &1420004915
 GameObject:
@@ -17356,6 +17445,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705507109}
   m_Mesh: {fileID: 1915998879}
+--- !u!1 &1708785549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708785550}
+  - component: {fileID: 1708785552}
+  - component: {fileID: 1708785551}
+  m_Layer: 5
+  m_Name: TowerDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1708785550
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708785549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 535339328}
+  m_Father: {fileID: 1047122303}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 311.6, y: 0}
+  m_SizeDelta: {x: 135.72061, y: 172.67891}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1708785551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708785549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8018868, g: 0.55803514, b: 0.14751692, a: 0.98039216}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 21
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1708785552
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708785549}
+  m_CullTransparentMesh: 0
 --- !u!1 &1716148886
 GameObject:
   m_ObjectHideFlags: 0
