@@ -110,12 +110,16 @@ public class TowerManager : MonoBehaviour
     {
         if (ToggleisOn)
         {
+            workOnBuild = true;
+            updateTimescale();
             selectedTower = StandardTowerData;
             TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            workOnBuild = false;
+            updateTimescale();
             selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1, 1, 0);
@@ -125,12 +129,16 @@ public class TowerManager : MonoBehaviour
     {
         if (ToggleisOn)
         {
+            workOnBuild = true;
+            updateTimescale();
             selectedTower = selectedTower1;
             TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(1).transform.localScale=new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            workOnBuild = false;
+            updateTimescale();
             selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(1).transform.localScale = new Vector3(1, 1, 0);
@@ -140,12 +148,16 @@ public class TowerManager : MonoBehaviour
     {
         if (ToggleisOn)
         {
+            workOnBuild = true;
+            updateTimescale();
             selectedTower = selectedTower2;
             TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
         else
         {
+            workOnBuild = false;
+            updateTimescale();
             selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1, 1, 0);
@@ -180,8 +192,6 @@ public class TowerManager : MonoBehaviour
         {
             TowerToggle.transform.GetChild(i).GetComponent<Toggle>().isOn = false;
         }
-        workOnBuild = !workOnBuild;
-        updateTimescale();
      }
   
     //升级画布UI
