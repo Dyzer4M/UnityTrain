@@ -116,6 +116,7 @@ public class TowerManager : MonoBehaviour
         }
         else
         {
+            selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1, 1, 0);
         }
@@ -130,6 +131,7 @@ public class TowerManager : MonoBehaviour
         }
         else
         {
+            selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(1).transform.localScale = new Vector3(1, 1, 0);
         }
@@ -144,6 +146,7 @@ public class TowerManager : MonoBehaviour
         }
         else
         {
+            selectedTower = null;
             TowerDescription.SetActive(false);
             TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1, 1, 0);
         }
@@ -179,7 +182,7 @@ public class TowerManager : MonoBehaviour
         }
         workOnBuild = !workOnBuild;
         updateTimescale();
-    }
+     }
   
     //升级画布UI
     void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade = false)
@@ -203,5 +206,4 @@ public class TowerManager : MonoBehaviour
         timeChanger.working = (workOnBuild || workOnUp);
         timeChanger.UpdateTimescale();
     }
-
 }
