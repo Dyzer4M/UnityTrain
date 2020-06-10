@@ -18,7 +18,7 @@ public class TowerManager : MonoBehaviour
     public  TowerData selectedTower;
 
     //金钱
-    public double money = 1000;
+    public double money;
     public Text Moneytext;
     public Animator moneyreduce;
 
@@ -33,7 +33,7 @@ public class TowerManager : MonoBehaviour
     void MoneyUpdate(int cost)
     {
         money -= cost;
-        Moneytext.text="$"+money;
+        Moneytext.text="ATP "+money;
     }
     private void Update()
     {
