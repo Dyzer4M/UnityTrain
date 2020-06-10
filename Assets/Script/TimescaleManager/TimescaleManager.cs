@@ -10,14 +10,23 @@ public class TimescaleManager : MonoBehaviour
     public float gameSpeed = 1;
     public bool working = false;
     public float workingTimescale = 0.5f;
+    public bool pause = false;
+    public GameObject pauseCanvas;
     public void UpdateTimescale()
     {
-        if (working)
+        if (pause) Time.timeScale = 0;
+        else if (working)
         {
             Time.timeScale = workingTimescale ;
         }
         else Time.timeScale = gameSpeed;
-        NowTimescale = Time.timeScale;
+        NowTimescale = Time.timeScale;//只是给开发看的（
+    }
+    public void SetPause(bool toggleOn)
+    {
+        pause = toggleOn;
+        //pauseCanvas.SetActive(pause);
+        UpdateTimescale();
     }
     // Start is called before the first frame update
     void Start()
@@ -30,4 +39,5 @@ public class TimescaleManager : MonoBehaviour
     {
         
     }
+    
 }

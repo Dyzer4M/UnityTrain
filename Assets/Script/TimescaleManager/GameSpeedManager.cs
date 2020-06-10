@@ -26,9 +26,9 @@ public class GameSpeedManager : MonoBehaviour
         timeChanger.gameSpeed = 2;
         timeChanger.UpdateTimescale();
     }
-    public void x3()
+    public void x05()
     {
-        timeChanger.gameSpeed = 3;
+        timeChanger.gameSpeed = 0.5f;
         timeChanger.UpdateTimescale();
     }
 }
