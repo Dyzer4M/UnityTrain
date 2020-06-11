@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
-    public Animator anim;
+    private Animator anim;
     public float initHealth = 100;
     private float currentHealth, healthBeforeDamageShow, hpBarShowDamageDownSpeed=0, timeForhpBarShowDamageDown = 0.5f, timeBeginToDown;
     public Image hpBar, hpBarShowDamage;

@@ -13,16 +13,24 @@ public class Tower : MonoBehaviour
     public float rotSpeed = 10;
     public float bulletRate = 2f;//发射子弹的速度
     private float countDown = 0;
+    private Animator anim;
+    private AudioSource myAudio;
 
     public void SetCube(TowerCube cube)
     {
         this.cubeon = cube;
     }
     // Start is called before the first frame update
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+        myAudio = GetComponent<AudioSource>();
+    }
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
         countDown = 1 / bulletRate;
+        anim.SetBool("Active", true);
     }
 
     // Update is called once per frame
@@ -30,6 +38,7 @@ public class Tower : MonoBehaviour
     {
         if (attackTarget == null) return;
         countDown -= Time.deltaTime;
+        this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(attackTarget.position - transform.position), 5.0f * Time.deltaTime);
         if (countDown <= 0)
         {
             GameObject bulletGo=Instantiate(bulletPrefab, this.transform.position,this.transform.rotation);
@@ -41,6 +50,8 @@ public class Tower : MonoBehaviour
             bullet.SetTarget(attackTarget);
             bullet.SetFather(this) ;
             countDown = 1 / bulletRate;
+            anim.SetBool("Shoot", true);
+            myAudio.Play();
         }
     }
 
