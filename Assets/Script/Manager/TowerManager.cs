@@ -85,7 +85,8 @@ public class TowerManager : MonoBehaviour
                                 Tower tower = BuildTower.GetComponent<Tower>();
                                 tower.attackRange = selectedTower.range;
                                 tower.bulletRate = selectedTower.speed;
-                                tower.bulletPrefab.GetComponent<Bullet>().damageNum = selectedTower.damage;
+                                tower.damage = selectedTower.damage;
+                                //tower.bulletPrefab.GetComponent<Bullet>().damageNum = selectedTower.damage;
                             }
                             else
                             {

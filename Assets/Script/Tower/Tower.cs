@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private TowerCube cubeon;
+    public float damage;
     public float attackRange=4;
     public string enemyTag = "Enemy";
     public Transform attackTarget;
@@ -43,6 +44,7 @@ public class Tower : MonoBehaviour
         {
             GameObject bulletGo=Instantiate(bulletPrefab, this.transform.position,this.transform.rotation);
             Bullet bullet = bulletGo.AddComponent<Bullet>();
+            bullet.damageNum = damage;
             if (bullet == null)
             {
                 bulletGo.AddComponent<Bullet>();
