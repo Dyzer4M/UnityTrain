@@ -78,7 +78,10 @@ public class TowerManager : MonoBehaviour
                         {
                             //建塔
                             MoneyUpdate(selectedTower.cost);
-                          
+                            GameObject BuildTower = selectedTower.TowerPrefab;
+                            Tower tower = BuildTower.GetComponent<Tower>();
+                            tower.attackRange = selectedTower.range;
+                            tower.bulletRate = selectedTower.speed;
                             cube.BuildTower(selectedTower);
                         }
                         else

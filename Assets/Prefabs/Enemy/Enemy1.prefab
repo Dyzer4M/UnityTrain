@@ -128,8 +128,9 @@ GameObject:
   - component: {fileID: 7756174569871733300}
   - component: {fileID: 2009674762955604879}
   - component: {fileID: 6102010867426566608}
-  - component: {fileID: 8673146951388915206}
   - component: {fileID: -2794462010763066581}
+  - component: {fileID: 984489595093542483}
+  - component: {fileID: 789084189727405038}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -250,21 +251,6 @@ NavMeshAgent:
   m_BaseOffset: 0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8673146951388915206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681017406254633525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194e44c357ce9594bbbf8d6e51701b88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentDesc: {fileID: 0}
-  isArrive: 0
-  infectedRadius: 0
 --- !u!54 &-2794462010763066581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,6 +267,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &984489595093542483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681017406254633525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c60c4bf44f6f4a4f8fe110bc956ff2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDesc: {fileID: 0}
+  isArrive: 0
+--- !u!114 &789084189727405038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681017406254633525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9390b5a137a50340ac7a948fc162139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  initHealth: 100
+  hpBar: {fileID: 1686434333437365741}
+  hpBarShowDamage: {fileID: 7002933312257996149}
 --- !u!1 &3077338288509373239
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private TowerCube cubeon;
-    private float attackRange=4;
+    public float attackRange=4;
     public string enemyTag = "Enemy";
     public Transform attackTarget;
     public Transform bullet;
