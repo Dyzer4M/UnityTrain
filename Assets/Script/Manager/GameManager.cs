@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+    public TimescaleManager timeChanger;
     //界面
     public GameObject GameCanves;
     public Text message;
@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     {
         message.text = "Lose";
         GameCanves.SetActive(true);
+        timeChanger.SetEnd();
     }
     public void win()
     {
         message.text="Win";
         GameCanves.SetActive(true);
+        timeChanger.SetEnd();
     }
     public void ReplayButton()
     {

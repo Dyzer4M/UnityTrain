@@ -28,6 +28,12 @@ public class TimescaleManager : MonoBehaviour
         pauseCanvas.SetActive(pause);
         UpdateTimescale();
     }
+
+    public void SetEnd()
+    {
+        pause = true ;
+        UpdateTimescale();
+    }
     // Start is called before the first frame update
     void Start()
     {

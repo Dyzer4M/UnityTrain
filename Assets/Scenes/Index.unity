@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a79ecb76e21094585728002fc25684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeChanger: {fileID: 1979413794}
   GameCanves: {fileID: 238144145}
   message: {fileID: 585701689}
 --- !u!1 &88246016
