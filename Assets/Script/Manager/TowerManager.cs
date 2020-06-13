@@ -11,18 +11,18 @@ public class TowerManager : MonoBehaviour
     public bool workOnBuild = false;
     public bool workOnUp = false;
     //塔的种类
-    public TowerData StandardTowerData;
-    public TowerData selectedTower1;
-    public TowerData selectedTower2;
+    public TowerData AttackTowerData;
+    public TowerData PurificationTowerData;
     //被选择的塔属性（目前只设置了一种）
-    public  TowerData selectedTower;
+    private TowerData selectedTower;
 
     //ATP
     public double ATP;
-    public Text ATPtext;
-    public Animator ATPreduce;
+    public Text ATPText;
+    public Animator ATPChangeAnimation;
     private float time=0;
-    public int ATPincreasetime;
+    public int ATPTimePerIncrease;
+    public int ATPCountPerIncrease;
 
     //更新面板
     public GameObject UpgradeCanves;
@@ -30,13 +30,14 @@ public class TowerManager : MonoBehaviour
     public GameObject TowerToggle;
     public GameObject TowerDescription;
     //场景中被选中的塔
-    private TowerCube SelectedTowerObject;
+    public TowerCube SelectedTowerObject;
     public Button UpButton;
+    public Button SplitButton;
     void MoneyUpdate(int cost)
     {
         ATP -= cost;
-        ATPtext.text="ATP "+ATP;
-        ATPreduce.SetTrigger("test");
+        ATPText.text="ATP "+ATP;
+        ATPChangeAnimation.SetTrigger("test");
     }
 
     void TowerDescriUpdate(TowerData tower)
@@ -47,10 +48,10 @@ public class TowerManager : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if (time >= ATPincreasetime)
+        if (time >= ATPTimePerIncrease)
         {
             time = 0;
-            MoneyUpdate(-50);
+            MoneyUpdate(-ATPCountPerIncrease);
         }
 
         //检测鼠标按下
@@ -99,7 +100,7 @@ public class TowerManager : MonoBehaviour
                         else
                         {
                         //钱不够
-                            ATPreduce.SetTrigger("nomoney");
+                            ATPChangeAnimation.SetTrigger("nomoney");
                         }
                     }
                     //有炮塔   做升级或拆迁处理
@@ -112,7 +113,10 @@ public class TowerManager : MonoBehaviour
                         }
                         else
                         {
-                            ShowUpgradeUI(cube.transform.position, cube.isUpgrade);
+                            if (cube.GetCurrentSplit() == cube.GetSplitLimit())
+                                ShowUpgradeUI(cube.transform.position, true, cube.isUpgrade);
+                            else
+                                ShowUpgradeUI(cube.transform.position, false, cube.isUpgrade);
                         }
                         SelectedTowerObject = cube;
                     }
@@ -121,13 +125,13 @@ public class TowerManager : MonoBehaviour
         }
     }
     //在面板里面添加引用
-    public void OnStandardSelected(bool ToggleisOn)
+    public void OnAttackSelected(bool ToggleisOn)
     {
         if (ToggleisOn)
         {
             workOnBuild = true;
             updateTimescale();
-            selectedTower = StandardTowerData;
+            selectedTower = AttackTowerData;
             TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
@@ -140,13 +144,13 @@ public class TowerManager : MonoBehaviour
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1, 1, 0);
         }
     }
-    public void OnStandardSelected1(bool ToggleisOn)
+    public void OnPurificationSelected(bool ToggleisOn)
     {
         if (ToggleisOn)
         {
             workOnBuild = true;
             updateTimescale();
-            selectedTower = selectedTower1;
+            selectedTower = PurificationTowerData;
             TowerDescriUpdate(selectedTower);
             TowerToggle.transform.GetChild(1).transform.localScale=new Vector3(1.5f, 1.5f, 0);
         }
@@ -159,25 +163,7 @@ public class TowerManager : MonoBehaviour
             TowerToggle.transform.GetChild(1).transform.localScale = new Vector3(1, 1, 0);
         }
     }
-    public void OnStandardSelected2(bool ToggleisOn)
-    {
-        if (ToggleisOn)
-        {
-            workOnBuild = true;
-            updateTimescale();
-            selectedTower = selectedTower2;
-            TowerDescriUpdate(selectedTower);
-            TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1.5f, 1.5f, 0);
-        }
-        else
-        {
-            workOnBuild = false;
-            updateTimescale();
-            selectedTower = null;
-            TowerDescription.SetActive(false);
-            TowerToggle.transform.GetChild(2).transform.localScale = new Vector3(1, 1, 0);
-        }
-    }
+
     public void OnUpgradeButtonDown()
     {
         if (ATP >= selectedTower.Upcost)
@@ -185,19 +171,28 @@ public class TowerManager : MonoBehaviour
             MoneyUpdate(selectedTower.Upcost);
             SelectedTowerObject.UpgradeTower();
         }
+        else
+        {
+            ATPChangeAnimation.SetTrigger("nomoney");
+        }
         HideUpgradeUI();
     }
     public void OnDestroyButtonDown()
     {
-        if (SelectedTowerObject.isUpgrade)
+        SelectedTowerObject.DestroyTower();
+        HideUpgradeUI();
+    }
+    public void OnSplitButtonDown()
+    {
+        if (ATP >= selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()])
         {
-            MoneyUpdate(-(selectedTower.cost + selectedTower.Upcost) / 2);
+            MoneyUpdate(selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]);
+            SelectedTowerObject.SplitTower();
         }
         else
         {
-            MoneyUpdate(-selectedTower.cost / 2);
+            ATPChangeAnimation.SetTrigger("nomoney");
         }
-        SelectedTowerObject.DestroyTower();
         HideUpgradeUI();
     }
     public void OnTowerChoseButtonDown()
@@ -210,7 +205,7 @@ public class TowerManager : MonoBehaviour
      }
   
     //升级画布UI
-    void ShowUpgradeUI(Vector3 pos, bool isDisableUpgrade = false)
+    void ShowUpgradeUI(Vector3 pos, bool isDisableSplit,bool isDisableUpgrade)
     {
         workOnUp = true;
         updateTimescale();
@@ -219,6 +214,7 @@ public class TowerManager : MonoBehaviour
         UpgradeCanves.transform.position = pos;
         //是否可以升级
         UpButton.interactable = !isDisableUpgrade;
+        SplitButton.interactable = !isDisableSplit;
     }
     void HideUpgradeUI()
     {

@@ -8,7 +8,7 @@ public class TowerCube : MonoBehaviour
     public GameObject TowerCubeOn;
     //塔属性
     private TowerData towerdata;
-    //塔是否升级
+    //塔分化
     public bool isUpgrade = false;
     //塔的建造特效
     public GameObject buildeffect;
@@ -21,6 +21,20 @@ public class TowerCube : MonoBehaviour
     //cube的感染值
     public float damage = -10;
     public float CubeHp = 100.0f;
+
+    //分裂
+    private int SplitLimit;
+    private int CurrentSplitLevel = 0;
+
+    public int GetSplitLimit()
+    {
+        return SplitLimit;
+    }
+
+    public int GetCurrentSplit()
+    {
+        return CurrentSplitLevel;
+    }
     private void Start()
     {
         render = GetComponent<MeshRenderer>();
@@ -54,6 +68,7 @@ public class TowerCube : MonoBehaviour
     public void BuildTower(TowerData tower)
     {
         this.towerdata = tower;
+        SplitLimit = towerdata.SplitPrefab.Count;
         isUpgrade = false;
         TowerCubeOn = GameObject.Instantiate(towerdata.TowerPrefab, this.transform.position, Quaternion.identity);
 
@@ -67,6 +82,7 @@ public class TowerCube : MonoBehaviour
         isUpgrade = false;
         towerdata = null;
         TowerCubeOn = null;
+        CurrentSplitLevel = 0;
     }
     public void UpgradeTower()
     {
@@ -78,6 +94,20 @@ public class TowerCube : MonoBehaviour
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
 
+    }
+
+    public void SplitTower()
+    {
+        if (CurrentSplitLevel == SplitLimit)
+        {
+            return;
+        }
+        else
+        {
+            Destroy(TowerCubeOn);
+            TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
+            CurrentSplitLevel++;
+        }
     }
     public void HpSetting(float num)
     {

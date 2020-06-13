@@ -13,11 +13,13 @@ public class TowerData
     public int cost;
     public GameObject UpgradePrefab;
     public int Upcost;
+    public List<GameObject> SplitPrefab;
+    public List<int> SplitCost;
     public TowerType type;
 }
 public enum TowerType
 {
-    StandardTower,
+    AttackTower,
     RecoverTower
 }
 
