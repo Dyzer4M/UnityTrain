@@ -25,7 +25,7 @@ public class TimescaleManager : MonoBehaviour
     public void SetPause(bool toggleOn)
     {
         pause = toggleOn;
-        //pauseCanvas.SetActive(pause);
+        pauseCanvas.SetActive(pause);
         UpdateTimescale();
     }
     // Start is called before the first frame update

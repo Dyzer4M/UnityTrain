@@ -64,7 +64,7 @@ public class TowerManager : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 //最大检测距离1000
-                bool isCollider = Physics.Raycast(ray, out hit, 1000, LayerMask.GetMask("TowerCube"));
+                bool isCollider = Physics.Raycast(ray, out hit, 1000, LayerMask.GetMask("TowerCube")) ;
                 if (isCollider)
                 {
                     //得到点击的cube

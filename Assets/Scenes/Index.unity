@@ -10653,6 +10653,7 @@ GameObject:
   - component: {fileID: 1419407311}
   - component: {fileID: 1419407310}
   - component: {fileID: 1419407309}
+  - component: {fileID: 1419407312}
   m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
@@ -10741,6 +10742,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &1419407312
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419407307}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1420004915
 GameObject:
   m_ObjectHideFlags: 0
