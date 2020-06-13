@@ -96,5 +96,8 @@ public class TowerCube : MonoBehaviour
     {
 
     }
-
+    public void changeDamage(float num)
+    {
+        this.damage += num;
+    }
 }

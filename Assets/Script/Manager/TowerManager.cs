@@ -78,10 +78,22 @@ public class TowerManager : MonoBehaviour
                         {
                             //建塔
                             MoneyUpdate(selectedTower.cost);
-                            GameObject BuildTower = selectedTower.TowerPrefab;
-                            Tower tower = BuildTower.GetComponent<Tower>();
-                            tower.attackRange = selectedTower.range;
-                            tower.bulletRate = selectedTower.speed;
+                            if (selectedTower.type == 0)
+                            {
+                                GameObject BuildTower = selectedTower.TowerPrefab;
+                                Tower tower = BuildTower.GetComponent<Tower>();
+                                tower.attackRange = selectedTower.range;
+                                tower.bulletRate = selectedTower.speed;
+                                tower.bulletPrefab.GetComponent<Bullet>().damageNum = selectedTower.damage;
+                            }
+                            else
+                            {
+                                Debug.Log("净化塔部署成功");
+                                GameObject BuildTower = selectedTower.TowerPrefab;
+                                RecoverTower tower=BuildTower.GetComponent<RecoverTower>();
+                                tower.attackRange = selectedTower.range;
+                                tower.recoverNum = selectedTower.damage;
+                            }
                             cube.BuildTower(selectedTower);
                         }
                         else

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1448274248356331367}
   - component: {fileID: 4909406756113762091}
   - component: {fileID: 2466119013337193930}
-  - component: {fileID: 8113000889752467374}
+  - component: {fileID: 6669026558678161206}
   m_Layer: 0
   m_Name: Tower2
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8113000889752467374
+--- !u!114 &6669026558678161206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,13 +103,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9041777899586917625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12bc164435432647bd07d67ec0b95a1, type: 3}
+  m_Script: {fileID: 11500000, guid: d72870093815ee0468f90d167a8a6f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTag: Enemy
-  attackTarget: {fileID: 0}
-  bullet: {fileID: 2910895131192383672, guid: ddb3875182363c948ad177770dfa60db, type: 3}
-  bulletPrefab: {fileID: 4116717127166661652, guid: ddb3875182363c948ad177770dfa60db,
-    type: 3}
-  rotSpeed: 10
-  bulletRate: 2
+  attackRange: 0
+  cubeTag: TowerCube
+  recoverNum: 0
