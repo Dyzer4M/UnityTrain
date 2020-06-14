@@ -28439,11 +28439,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f574fc5e78bcce1408bde2c6e5426619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedGroup: {fileID: 315988501}
+  pauseToggle: {fileID: 344978840}
   NowTimescale: 1
   gameSpeed: 1
   working: 0
   workingTimescale: 0.2
   pause: 0
+  isEnd: 0
   pauseCanvas: {fileID: 1419407307}
 --- !u!1 &2060942511
 GameObject:

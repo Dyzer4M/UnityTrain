@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class TimescaleManager : MonoBehaviour
 {
+    public ToggleGroup speedGroup;
+    public Toggle pauseToggle;
     public float NowTimescale;
     public float gameSpeed = 1;
     public bool working = false;
@@ -43,6 +46,11 @@ public class TimescaleManager : MonoBehaviour
     {
         isEnd = true ;
         UpdateTimescale();
+        for (int i = 0; i < speedGroup.transform.childCount; i++)
+        {
+            speedGroup.transform.GetChild(i).GetComponent<Toggle>().interactable = false;
+            pauseToggle.interactable = false;
+        }
     }
     // Start is called before the first frame update
     void Start()
