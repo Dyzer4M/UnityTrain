@@ -10,10 +10,10 @@ public class TowerManager : MonoBehaviour
     public TimescaleManager timeChanger;
     public bool workOnBuild = false;
     public bool workOnUp = false;
-    //塔的种类
+    //全部塔的种类
     public TowerData AttackTowerData;
     public TowerData PurificationTowerData;
-    //被选择的塔属性（目前只设置了一种）
+    //当前被选择的塔属性
     private TowerData selectedTower;
 
     //ATP
@@ -42,8 +42,10 @@ public class TowerManager : MonoBehaviour
 
     void TowerDescriUpdate(TowerData tower)
     {
-        TowerDescription.SetActive(true);
-        TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
+        if(tower.type==TowerType.AttackTower)
+            TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
+        if(tower.type==TowerType.RecoverTower)
+            TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
     }
     private void Update()
     {
@@ -79,7 +81,7 @@ public class TowerManager : MonoBehaviour
                         {
                             //建塔
                             MoneyUpdate(selectedTower.cost);
-                            if (selectedTower.type == 0)
+                            if (selectedTower.type == TowerType.AttackTower)
                             {
                                 GameObject BuildTower = selectedTower.TowerPrefab;
                                 Tower tower = BuildTower.GetComponent<Tower>();
@@ -88,7 +90,7 @@ public class TowerManager : MonoBehaviour
                                 tower.damage = selectedTower.damage;
                                 //tower.bulletPrefab.GetComponent<Bullet>().damageNum = selectedTower.damage;
                             }
-                            else
+                            else if(selectedTower.type==TowerType.RecoverTower)
                             {
                                 Debug.Log("净化塔部署成功");
                                 GameObject BuildTower = selectedTower.TowerPrefab;
@@ -134,6 +136,7 @@ public class TowerManager : MonoBehaviour
             updateTimescale();
             selectedTower = AttackTowerData;
             TowerDescriUpdate(selectedTower);
+            TowerDescription.SetActive(true);
             TowerToggle.transform.GetChild(0).transform.localScale = new Vector3(1.5f, 1.5f, 0);
         }
         else
@@ -153,6 +156,7 @@ public class TowerManager : MonoBehaviour
             updateTimescale();
             selectedTower = PurificationTowerData;
             TowerDescriUpdate(selectedTower);
+            TowerDescription.SetActive(true);
             TowerToggle.transform.GetChild(1).transform.localScale=new Vector3(1.5f, 1.5f, 0);
         }
         else
@@ -171,6 +175,7 @@ public class TowerManager : MonoBehaviour
         {
             MoneyUpdate(selectedTower.Upcost);
             SelectedTowerObject.UpgradeTower();
+            TowerDescriUpdate(selectedTower);
         }
         else
         {
@@ -185,15 +190,19 @@ public class TowerManager : MonoBehaviour
     }
     public void OnSplitButtonDown()
     {
+        Debug.Log("最高分裂等级" + SelectedTowerObject.GetSplitLimit());
+
         if (ATP >= selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()])
         {
             MoneyUpdate(selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]);
             SelectedTowerObject.SplitTower();
+            TowerDescriUpdate(selectedTower);
         }
         else
         {
             ATPChangeAnimation.SetTrigger("nomoney");
         }
+        Debug.Log("当前分裂等级"+SelectedTowerObject.GetCurrentSplit());
         HideUpgradeUI();
     }
     public void OnTowerChoseButtonDown()

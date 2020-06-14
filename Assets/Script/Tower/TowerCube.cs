@@ -90,6 +90,29 @@ public class TowerCube : MonoBehaviour
             return;
         Destroy(TowerCubeOn);
         isUpgrade = true;
+        Random.InitState((int)System.DateTime.Now.Ticks);
+        int i = Random.Range(1, 4);
+        switch (i)
+        {
+            case 1:
+                towerdata.damage = towerdata.damageUpdate;
+                break;
+            case 2:
+                towerdata.range = towerdata.rangeUpdate;
+                break;
+            case 3:
+                if (towerdata.type == 0)
+                    towerdata.speed = towerdata.speedUpdate;
+                else
+                {
+                    i = Random.Range(1, 3);
+                    if(i==1)
+                        towerdata.damage = towerdata.damageUpdate;
+                    else
+                        towerdata.range = towerdata.rangeUpdate;
+                }
+                break;
+        };
         TowerCubeOn = GameObject.Instantiate(towerdata.UpgradePrefab, transform.position, Quaternion.identity);
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
@@ -105,6 +128,7 @@ public class TowerCube : MonoBehaviour
         else
         {
             Destroy(TowerCubeOn);
+            towerdata.damage = towerdata.damage + towerdata.SplitUpdamage;
             TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
             CurrentSplitLevel++;
         }

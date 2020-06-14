@@ -9,11 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public TimescaleManager timeChanger;
     //界面
-    public GameObject GameCanves;
     public Text message;
 
     public static GameManager Instance;
-
+    public Animator GameAnimation;
     private void Awake()
     {
         Instance = this;
@@ -22,13 +21,13 @@ public class GameManager : MonoBehaviour
     public void lose()
     {
         message.text = "Lose";
-        GameCanves.SetActive(true);
+        GameAnimation.SetTrigger("lose");
         timeChanger.SetEnd();
     }
     public void win()
     {
         message.text="Win";
-        GameCanves.SetActive(true);
+        GameAnimation.SetTrigger("win");
         timeChanger.SetEnd();
     }
     public void ReplayButton()
