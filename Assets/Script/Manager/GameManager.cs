@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        timeChanger.resetTimescale();
     }
     // Start is called before the first frame update
     public void lose()

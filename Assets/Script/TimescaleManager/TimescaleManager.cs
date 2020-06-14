@@ -12,6 +12,14 @@ public class TimescaleManager : MonoBehaviour
     public float workingTimescale = 0.5f;
     public bool pause = false;
     public GameObject pauseCanvas;
+
+    public void resetTimescale()
+    {
+        gameSpeed = 1;
+        working = false;
+        pause = false;
+        UpdateTimescale();
+    }
     public void UpdateTimescale()
     {
         if (pause) Time.timeScale = 0;
