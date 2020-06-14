@@ -15,6 +15,6 @@ public class viewerController : MonoBehaviour
         float v = Input.GetAxis("Vertical");//z
         float mouse = Input.GetAxis("Mouse ScrollWheel");
 
-        transform.Translate(new Vector3(h*speed, mouse*mousespeed, v*speed) * Time.deltaTime, Space.World);
+        transform.Translate(new Vector3(h*speed, -mouse*mousespeed, v*speed) * Time.deltaTime, Space.World);
     }
 }
