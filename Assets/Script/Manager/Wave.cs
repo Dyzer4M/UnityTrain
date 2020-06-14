@@ -47,11 +47,12 @@ public class Wave :TimeBehavior
     /// </summary>
     public void SpawnCurrent()
     {
-        GameObject enemyToSpawn=Instantiate(spawnList[currentSpawn].enemyPrefab);
+        GameObject enemyToSpawn=Instantiate(spawnList[currentSpawn].enemyPrefab,
+            spawnList[currentSpawn].startNode.transform.position, spawnList[currentSpawn].startNode.transform.rotation);
         GameObject enemyManager = GameObject.Find("EnemyManager");
 
         enemyToSpawn.transform.SetParent(enemyManager.transform);
-        enemyToSpawn.transform.position=spawnList[currentSpawn].startNode.transform.position;
+       // enemyToSpawn.transform.position=spawnList[currentSpawn].startNode.transform.position;
 
         Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
 
