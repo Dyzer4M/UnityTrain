@@ -95,21 +95,21 @@ public class TowerCube : MonoBehaviour
         switch (i)
         {
             case 1:
-                towerdata.damage = towerdata.damageUpdate;
+                towerdata.TowerPrefab.GetComponent<Tower>().damage = towerdata.damageUpdate;
                 break;
             case 2:
-                towerdata.range = towerdata.rangeUpdate;
+                towerdata.TowerPrefab.GetComponent<Tower>().attackRange = towerdata.rangeUpdate;
                 break;
             case 3:
                 if (towerdata.type == 0)
-                    towerdata.speed = towerdata.speedUpdate;
+                    towerdata.TowerPrefab.GetComponent<Tower>().bulletRate = towerdata.speedUpdate;
                 else
                 {
                     i = Random.Range(1, 3);
                     if(i==1)
-                        towerdata.damage = towerdata.damageUpdate;
+                        towerdata.TowerPrefab.GetComponent<Tower>().damage = towerdata.damageUpdate;
                     else
-                        towerdata.range = towerdata.rangeUpdate;
+                        towerdata.TowerPrefab.GetComponent<Tower>().attackRange = towerdata.rangeUpdate;
                 }
                 break;
         };
@@ -128,7 +128,7 @@ public class TowerCube : MonoBehaviour
         else
         {
             Destroy(TowerCubeOn);
-            towerdata.damage = towerdata.damage + towerdata.SplitUpdamage;
+            towerdata.TowerPrefab.GetComponent<Tower>().damage += towerdata.SplitUpdamage;
             TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
             CurrentSplitLevel++;
         }
