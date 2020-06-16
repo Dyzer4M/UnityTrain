@@ -106,9 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12bc164435432647bd07d67ec0b95a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  attackRange: 4
   enemyTag: Enemy
   attackTarget: {fileID: 0}
-  bullet: {fileID: 2910895131192383672, guid: ddb3875182363c948ad177770dfa60db, type: 3}
+  bullet: {fileID: 0}
   bulletPrefab: {fileID: 4116717127166661652, guid: ddb3875182363c948ad177770dfa60db,
     type: 3}
   rotSpeed: 10

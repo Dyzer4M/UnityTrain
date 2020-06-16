@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7969508791266402408}
   - component: {fileID: 2996537421362758658}
   - component: {fileID: 2977678432821459360}
-  - component: {fileID: -843362885069360177}
+  - component: {fileID: 6393372205329721033}
   m_Layer: 0
   m_Name: UpgradeTower
   m_TagString: Untagged
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-843362885069360177
+--- !u!114 &6393372205329721033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,9 +104,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3925794365896718582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d72870093815ee0468f90d167a8a6f0a, type: 3}
+  m_Script: {fileID: 11500000, guid: f12bc164435432647bd07d67ec0b95a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
-  cubeTag: TowerCube
-  recoverNum: 0
+  damage: 0
+  attackRange: 4
+  enemyTag: Enemy
+  attackTarget: {fileID: 0}
+  bullet: {fileID: 2910895131192383672, guid: ddb3875182363c948ad177770dfa60db, type: 3}
+  bulletPrefab: {fileID: 4116717127166661652, guid: ddb3875182363c948ad177770dfa60db,
+    type: 3}
+  rotSpeed: 10
+  bulletRate: 2

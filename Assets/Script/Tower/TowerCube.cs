@@ -112,14 +112,20 @@ public class TowerCube : MonoBehaviour
             switch (i)
             {
                 case 1:
-                    towerdata.TowerPrefab.GetComponent<Tower>().damage += towerdata.damageUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().damage += towerdata.damageUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().attackRange = towerdata.TowerPrefab.GetComponent<Tower>().attackRange;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().bulletRate = towerdata.TowerPrefab.GetComponent<Tower>().bulletRate;
                     break;
                 case 2:
-                    towerdata.TowerPrefab.GetComponent<Tower>().attackRange += towerdata.rangeUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().damage = towerdata.TowerPrefab.GetComponent<Tower>().damage;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().attackRange += towerdata.rangeUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().bulletRate = towerdata.TowerPrefab.GetComponent<Tower>().bulletRate;
 
                     break;
                 case 3:
-                    towerdata.TowerPrefab.GetComponent<Tower>().bulletRate += towerdata.speedUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().damage = towerdata.TowerPrefab.GetComponent<Tower>().damage;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().bulletRate += towerdata.speedUpdate;
+                    towerdata.UpgradePrefab.GetComponent<Tower>().attackRange = towerdata.TowerPrefab.GetComponent<Tower>().attackRange;
                     break;
             }           
         }
