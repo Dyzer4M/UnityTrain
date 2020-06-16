@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 public class TowerCube : MonoBehaviour
 {
     [HideInInspector] //被选中的cube的塔
@@ -26,6 +27,8 @@ public class TowerCube : MonoBehaviour
     private int SplitLimit;
     private int CurrentSplitLevel = 0;
 
+    public Text TowerDescription;
+
     public int GetSplitLimit()
     {
         return SplitLimit;
@@ -34,6 +37,17 @@ public class TowerCube : MonoBehaviour
     public int GetCurrentSplit()
     {
         return CurrentSplitLevel;
+    }
+    public TowerData Getdata()
+    {
+        return towerdata;
+    }
+    void TowerDescriUpdate(TowerData tower)
+    {
+        if (tower.type == TowerType.AttackTower)
+            TowerDescription.text = "Damage: " + tower.TowerPrefab.GetComponent<Tower>().damage + '\n' + "Speed: " + tower.TowerPrefab.GetComponent<Tower>().bulletRate + '\n' + "Range: " + tower.TowerPrefab.GetComponent<Tower>().attackRange + '\n';
+        if (tower.type == TowerType.RecoverTower)
+            TowerDescription.text = "Damage: " + tower.TowerPrefab.GetComponent<RecoverTower>().recoverNum + '\n' + "Range: " + tower.TowerPrefab.GetComponent<RecoverTower>().attackRange + '\n';
     }
     private void Start()
     {
@@ -71,7 +85,7 @@ public class TowerCube : MonoBehaviour
         SplitLimit = towerdata.SplitPrefab.Count;
         isUpgrade = false;
         TowerCubeOn = GameObject.Instantiate(towerdata.TowerPrefab, this.transform.position, Quaternion.identity);
-
+        TowerDescriUpdate(towerdata);
         //UI
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
@@ -91,29 +105,39 @@ public class TowerCube : MonoBehaviour
         Destroy(TowerCubeOn);
         isUpgrade = true;
         Random.InitState((int)System.DateTime.Now.Ticks);
-        int i = Random.Range(1, 4);
-        switch (i)
+
+        if (towerdata.type == TowerType.AttackTower)
         {
-            case 1:
-                towerdata.TowerPrefab.GetComponent<Tower>().damage = towerdata.damageUpdate;
-                break;
-            case 2:
-                towerdata.TowerPrefab.GetComponent<Tower>().attackRange = towerdata.rangeUpdate;
-                break;
-            case 3:
-                if (towerdata.type == 0)
-                    towerdata.TowerPrefab.GetComponent<Tower>().bulletRate = towerdata.speedUpdate;
-                else
-                {
-                    i = Random.Range(1, 3);
-                    if(i==1)
-                        towerdata.TowerPrefab.GetComponent<Tower>().damage = towerdata.damageUpdate;
-                    else
-                        towerdata.TowerPrefab.GetComponent<Tower>().attackRange = towerdata.rangeUpdate;
-                }
-                break;
-        };
+            int i = Random.Range(1, 4);
+            switch (i)
+            {
+                case 1:
+                    towerdata.TowerPrefab.GetComponent<Tower>().damage += towerdata.damageUpdate;
+                    break;
+                case 2:
+                    towerdata.TowerPrefab.GetComponent<Tower>().attackRange += towerdata.rangeUpdate;
+
+                    break;
+                case 3:
+                    towerdata.TowerPrefab.GetComponent<Tower>().bulletRate += towerdata.speedUpdate;
+                    break;
+            }           
+        }
+        else if (towerdata.type == TowerType.RecoverTower)
+        {
+            int i = Random.Range(1, 3);
+            switch (i)
+            {
+                case 1:
+                    towerdata.TowerPrefab.GetComponent<RecoverTower>().recoverNum += towerdata.damageUpdate;
+                    break;
+                case 2:
+                    towerdata.TowerPrefab.GetComponent<RecoverTower>().attackRange += towerdata.rangeUpdate;
+                    break;
+            }
+        }
         TowerCubeOn = GameObject.Instantiate(towerdata.UpgradePrefab, transform.position, Quaternion.identity);
+        TowerDescriUpdate(towerdata);
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
 
@@ -132,6 +156,7 @@ public class TowerCube : MonoBehaviour
             TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
             CurrentSplitLevel++;
         }
+        TowerDescriUpdate(towerdata);
     }
     public void HpSetting(float num)
     {

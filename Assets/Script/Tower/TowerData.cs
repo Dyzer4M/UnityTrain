@@ -13,7 +13,6 @@ public class TowerData
     public int damageUpdate;
     public int rangeUpdate;
     public int speedUpdate;
-    public int Updamage;
     public GameObject TowerPrefab;
     public int cost;
     public GameObject UpgradePrefab;

@@ -35,6 +35,8 @@ public class TowerManager : MonoBehaviour
     public Button SplitButton;
     void MoneyUpdate(int cost)
     {
+        if (ATPText == null)
+            return;
         ATP -= cost;
         ATPText.text="ATP "+ATP;
         ATPChangeAnimation.SetTrigger("test");
@@ -171,6 +173,7 @@ public class TowerManager : MonoBehaviour
 
     public void OnUpgradeButtonDown()
     {
+        selectedTower = SelectedTowerObject.Getdata();
         if (ATP >= selectedTower.Upcost)
         {
             MoneyUpdate(selectedTower.Upcost);
@@ -190,8 +193,7 @@ public class TowerManager : MonoBehaviour
     }
     public void OnSplitButtonDown()
     {
-        Debug.Log("最高分裂等级" + SelectedTowerObject.GetSplitLimit());
-
+        selectedTower = SelectedTowerObject.Getdata();
         if (ATP >= selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()])
         {
             MoneyUpdate(selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]);
@@ -202,7 +204,6 @@ public class TowerManager : MonoBehaviour
         {
             ATPChangeAnimation.SetTrigger("nomoney");
         }
-        Debug.Log("当前分裂等级"+SelectedTowerObject.GetCurrentSplit());
         HideUpgradeUI();
     }
     public void OnTowerChoseButtonDown()
