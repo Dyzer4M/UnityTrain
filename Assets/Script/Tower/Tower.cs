@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     public float bulletRate = 2f;//发射子弹的速度
     private float countDown = 0;
     private Animator anim;
-    private AudioSource myAudio;
+
 
     public void SetCube(TowerCube cube)
     {
@@ -25,7 +25,6 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        myAudio = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -53,7 +52,6 @@ public class Tower : MonoBehaviour
             bullet.SetFather(this) ;
             countDown = 1 / bulletRate;
             anim.SetBool("Shoot", true);
-            myAudio.Play();
         }
     }
 
