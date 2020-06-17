@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 
 /// <summary>
-/// ÒÑ¾­ÅÉÉú³ö²»Í¬¹ÖÎïµÄÀà£¬ÈôĞèÒªĞŞ¸Ä×îºÃ°´ĞèĞŞ¸ÄÕâ¸öÀà»òÕßĞŞ¸ÄÆä×ÓÀà
+/// å·²ç»æ´¾ç”Ÿå‡ºä¸åŒæ€ªç‰©çš„ç±»ï¼Œè‹¥éœ€è¦ä¿®æ”¹æœ€å¥½æŒ‰éœ€ä¿®æ”¹è¿™ä¸ªç±»æˆ–è€…ä¿®æ”¹å…¶å­ç±»
 /// </summary>
 /// 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -44,12 +44,12 @@ public class Enemy :MonoBehaviour
         if (enemyHp.isAlive())
         {
             
-            Move();//ÔÚ»î×ÅµÄÊ±ºò²Å¶¯
+            Move();//åœ¨æ´»ç€çš„æ—¶å€™æ‰åŠ¨
 
         }
         else
         {
-            agent.speed = 0;//Ô­µØËÀÍö
+            agent.speed = 0;//åŸåœ°æ­»äº¡
         }
 
 
@@ -67,7 +67,7 @@ public class Enemy :MonoBehaviour
 
     void Move()
     {
-        //µ½´ïÖÕµã
+        //åˆ°è¾¾ç»ˆç‚¹
         if (currentDesc.isEnd && (Vector3.SqrMagnitude(this.gameObject.transform.position - agent.destination) < agent.stoppingDistance))
         {
             EnemyArriveEnd();
@@ -85,7 +85,7 @@ public class Enemy :MonoBehaviour
         agent.SetDestination(vec3);
     }
 
-    //¹ÖÎïµÖ´ïÖÕµãËù×ö´¦Àí
+    //æ€ªç‰©æŠµè¾¾ç»ˆç‚¹æ‰€åšå¤„ç†
     void EnemyArriveEnd()
     {
        // EnemyManager.EnemyAliveCount--;
