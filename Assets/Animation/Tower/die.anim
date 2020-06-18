@@ -403,7 +403,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6
-        value: {x: -0.316, y: 0.733, z: -0}
+        value: {x: -0.316, y: 0.733, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -573,7 +573,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6
-        value: {x: 0.641, y: -0.357, z: -0}
+        value: {x: 0.641, y: -0.357, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -768,7 +768,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6
-        value: {x: -0.025, y: -1.008, z: -0}
+        value: {x: -0.025, y: -1.008, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1941,7 +1941,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2496,7 +2496,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3135,7 +3135,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6
-        value: -0
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3577,7 +3577,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3587,7 +3587,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3597,7 +3597,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3637,7 +3697,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3647,7 +3707,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3657,7 +3717,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3727,7 +3817,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3737,7 +3827,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3747,7 +3837,27 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3757,117 +3867,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base/Front_arm_A/Front_arm_Joint_Middle/Front_arm_B/Front_Joint_Cannon
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Front_joint_Base
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon
+    path: Base/Rotating_base/Central_Tracks_/Rear_arm_Joint_Base/Rear_Arm_B/Rear_arm_join_Middle/Rear_arm_A/Rear_arm_joint_Canon/canon/Canon_pivot__paired
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

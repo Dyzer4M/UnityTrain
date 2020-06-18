@@ -10,11 +10,14 @@ public class RecoverTower : MonoBehaviour
     private GameObject[] ExistCube;
     private List<GameObject> recoverCube;
     public float recoverNum;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         recoverCube = new List<GameObject>();
         RecoverCube();
+        anim = GetComponentInChildren<Animator>();
+        anim.SetBool("Active", true);
     }
     private void OnDestroy()
     {

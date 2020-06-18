@@ -33,7 +33,9 @@ public class EnemyHealth : MonoBehaviour
             }
             hpBarShowDamage.fillAmount = healthBeforeDamageShow / initHealth;
         }
-        if (healthBeforeDamageShow <= 0) Destroy(gameObject,2f);//这个应该用来检测动画放完没有
+        if (healthBeforeDamageShow <= 0) return;
+            //Destroy(gameObject);Destroy被我放到DestroyEnemy脚本下Die函数里了，可以在动画播放完再destroy
+            //这个应该用来检测动画放完没有
     }
     public void Damage(float amount)
     {
@@ -74,5 +76,4 @@ public class EnemyHealth : MonoBehaviour
     {
         redLight.enabled = false;
     }
-
 }
