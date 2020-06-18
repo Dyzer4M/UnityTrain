@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DisplacementNoise:
-        m_Texture: {fileID: 11700000, guid: 074656d1f14694eb297628260961d5b2, type: 2}
+        m_Texture: {fileID: 11700000, guid: fb141c03628c1b148b773f13603fa08e, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DisplacementRamp:
@@ -85,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _VolumeNoise:
-        m_Texture: {fileID: 11700000, guid: 41df2adca36624d8bac73673f98147f9, type: 2}
+        m_Texture: {fileID: 11700000, guid: fb141c03628c1b148b773f13603fa08e, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

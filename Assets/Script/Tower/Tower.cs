@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     public float bulletRate = 2f;//发射子弹的速度
     private float countDown = 0;
     private Animator anim;
-
+    //private ParticleSystem ps;
 
     public void SetCube(TowerCube cube)
     {
@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        //ps = this.transform.Find("Explosion").GetComponent<ParticleSystem>();
     }
     void Start()
     {
@@ -37,6 +38,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
         if (attackTarget == null) return;
+        if (anim.GetBool("Die") == true) return;
         countDown -= Time.deltaTime;
         this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(attackTarget.position - transform.position), 5.0f * Time.deltaTime);
         if (countDown <= 0)
@@ -91,4 +93,5 @@ public class Tower : MonoBehaviour
             attackTarget = null;
         }
     }
+
 }

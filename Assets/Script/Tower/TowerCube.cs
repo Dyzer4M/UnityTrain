@@ -92,7 +92,8 @@ public class TowerCube : MonoBehaviour
     }
     public void DestroyTower()
     {
-        Destroy(TowerCubeOn);
+        TowerCubeOn.GetComponentInChildren<Animator>().SetBool("Die", true);
+        Destroy(TowerCubeOn,1.5f);
         isUpgrade = false;
         towerdata = null;
         TowerCubeOn = null;

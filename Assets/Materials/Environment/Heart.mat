@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DisplacementNoise:
-        m_Texture: {fileID: 11700000, guid: 074656d1f14694eb297628260961d5b2, type: 2}
+        m_Texture: {fileID: 11700000, guid: 8bfb1671de4909f4b87ab037cb59769a, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DisplacementRamp:
@@ -91,16 +91,16 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Displacement: 0.416
+    - _Displacement: 0.55
     - _DisplacementIndex: 0
     - _DisplacementScale: 0.1
     - _DisplacementSpeed: 2
     - _DstBlend: 0
     - _EdgeLength: 15
     - _GlossMapScale: 0.47
-    - _Glossiness: 1
+    - _Glossiness: 0.76
     - _GlossyReflections: 1
-    - _Metallic: 1
+    - _Metallic: 0.34
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -112,5 +112,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 191.74902, g: 191.74902, b: 191.74902, a: 1}
     - _OctaveIndex: {r: 0, g: 1, b: 2, a: 3}
