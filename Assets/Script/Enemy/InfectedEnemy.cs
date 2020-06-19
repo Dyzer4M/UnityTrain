@@ -35,7 +35,6 @@ public class InfectedEnemy : Enemy
             info.time += Time.deltaTime;
             if (info.time >= infectedInterval)
             {
-                Debug.Log("[Infected]:感染");
                 info.time = 0;
                 TowerCube cube = info.cube.GetComponent<TowerCube>();
                 cube.HpSetting(-infectedDamge);

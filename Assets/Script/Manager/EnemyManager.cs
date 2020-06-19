@@ -16,10 +16,10 @@ public class EnemyManager : TimeBehavior
 
     public static  bool spawnFinish = false;
 
-    //Ã¿Ò»²¨¹ÖÎïÉú³ÉÖ®Ç°µÄÑÓ³Ù
+    //æ¯ä¸€æ³¢æ€ªç‰©ç”Ÿæˆä¹‹å‰çš„å»¶è¿Ÿ
     public float waveDelay = 1;
 
-    //½çÃæ
+    //ç•Œé¢
     public GameManager CanvesManager;
     private void Awake()
     {
@@ -29,12 +29,12 @@ public class EnemyManager : TimeBehavior
     /// <summary>
     private void Start()
     {
-       // Debug.LogFormat("[µÚ{22}²¨½áÊø]");
+       // Debug.LogFormat("[ç¬¬{22}æ³¢ç»“æŸ]");
         SpawnCurrentWave();
     }
 
     /// </summary>
-    ///*Éú³Éµ±Ç°Ò»²¨µÄ¹ÖÎï
+    ///*ç”Ÿæˆå½“å‰ä¸€æ³¢çš„æ€ªç‰©
     /// </summary>
     public void SpawnCurrentWave()
     {
@@ -46,19 +46,19 @@ public class EnemyManager : TimeBehavior
     }
 
     /// <summary>
-    /// Ã¿Ò»²¨¹ÖÎïÉú³É½áÊøºóµÄ»Øµ÷
+    /// æ¯ä¸€æ³¢æ€ªç‰©ç”Ÿæˆç»“æŸåçš„å›è°ƒ
     /// </summary>
     public void WaveFinish()
     {
-       // Debug.LogFormat("[µÚ{0}²¨½áÊø]", currentWave + 1);
+       // Debug.LogFormat("[ç¬¬{0}æ³¢ç»“æŸ]", currentWave + 1);
         //waveList[currentWave].m_deadCallBack -= deadCallback;
         waveList[currentWave].m_callBack -= WaveFinish;
         currentWave++;
         if (currentWave < waveList.Count)
         {
             waveList[currentWave].m_callBack += WaveFinish;
-            waveList[currentWave].m_aliveCallBack += aliveCallback;
-            waveList[currentWave].m_deadCallBack += destroyCallback;
+            waveList[currentWave].m_aliveCallBack = aliveCallback;
+            waveList[currentWave].m_deadCallBack = destroyCallback;
             StartTimer(new Timer(waveDelay, waveList[currentWave].StartWave));
         }
         else
@@ -70,21 +70,22 @@ public class EnemyManager : TimeBehavior
     {
 
         EnemyAliveCount++;
+        Debug.Log("[æ•°é‡]"+EnemyAliveCount);
     }
 
 
     /// <summary>
-    /// ¹ÖÎïËÀÍö»Øµ÷
+    /// æ€ªç‰©æ­»äº¡å›è°ƒ
     /// </summary>
     public void destroyCallback(Enemy enemy)
     {
         enemy.deadCallback = null;
         enemy.aliveCallback = null;
         EnemyAliveCount--;
-        Debug.Log("enemy die");
+        Debug.Log("[æ•°é‡]"+EnemyAliveCount);
         if (enemy.isArrive)
         {
-            //ÓÎÏ·Ê§°Ü
+            //æ¸¸æˆå¤±è´¥
             GameOver();
             return;
         }
@@ -95,16 +96,16 @@ public class EnemyManager : TimeBehavior
         }
     }
     /// <summary>
-    /// ÓÎÏ·Ê§°ÜÂß¼­
+    /// æ¸¸æˆå¤±è´¥é€»è¾‘
     /// </summary>
     public void GameOver()
     {
-        Debug.Log("ÓÎÏ·Ê§°Ü");
+        Debug.Log("æ¸¸æˆå¤±è´¥");
         CanvesManager.lose();
     }
     public void GameWin()
     {
-        Debug.Log("ÓÎÏ·Ê¤Àû");
+        Debug.Log("æ¸¸æˆèƒœåˆ©");
         CanvesManager.win();
 
     }

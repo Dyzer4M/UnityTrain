@@ -16,12 +16,22 @@ public class WaveSinNextNode : SingNextNode
         
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isInfectd)
         {
             isInfectd = true;
             Wave wave = gameObject.GetComponent<Wave>();
+            GameObject enemyManager = GameObject.Find("EnemyManager");
+            
+            if (enemyManager != null)
+            {
+                EnemyManager manager = enemyManager.GetComponent<EnemyManager>();
+                wave.m_aliveCallBack += manager.aliveCallback;
+                wave.m_deadCallBack += manager.destroyCallback;
+            }
+
             wave.StartWave();
         }
     }
