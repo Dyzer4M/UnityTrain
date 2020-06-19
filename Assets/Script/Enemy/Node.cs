@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
 
     public bool isEnd;
 
+    
     public virtual Node GetNextNode()
     {
         return null;

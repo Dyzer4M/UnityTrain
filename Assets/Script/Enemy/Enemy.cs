@@ -15,7 +15,7 @@ using UnityEngine.UI;
 public class Enemy :MonoBehaviour
 {
     // Start is called before the first frame update
-    [HideInInspector]
+    //[HideInInspector]
     public  Node currentDesc;
     private NavMeshAgent agent;
     public Action<Enemy> aliveCallback;

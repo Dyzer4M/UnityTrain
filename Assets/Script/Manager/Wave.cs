@@ -34,6 +34,8 @@ public class Wave :TimeBehavior
     private void Awake()
     {
         currentSpawn = 0;
+
+        
     }
 
 
