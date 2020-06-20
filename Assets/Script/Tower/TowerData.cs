@@ -20,6 +20,10 @@ public class TowerData
     public List<GameObject> SplitPrefab;
     public List<int> SplitCost;
     public TowerType type;
+    public object Clone()
+    {
+        return MemberwiseClone(); //对引用类型实施浅复制
+    }
 }
 public enum TowerType
 {

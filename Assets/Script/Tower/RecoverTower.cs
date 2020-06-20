@@ -19,23 +19,30 @@ public class RecoverTower : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         anim.SetBool("Active", true);
     }
+
+    void Update()
+    {
+    }
+
     private void OnDestroy()
     {
         resetCube();
     }
-    // Update is called once per frame
-    void Update()
+
+    private void SetCube(TowerCube cube)
     {
+        this.cubeon = cube;
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, attackRange);
     }
-    private void SetCube(TowerCube cube)
-    {
-        this.cubeon = cube;
-    }
+
+    /// <summary>
+    /// 为范围内的塔台增加恢复值
+    /// </summary>
     private void RecoverCube()
     {
         ExistCube = GameObject.FindGameObjectsWithTag(cubeTag);
@@ -47,18 +54,21 @@ public class RecoverTower : MonoBehaviour
             {
                 recoverCube.Add(cube);
                 TowerCube CubeScript = cube.GetComponent<TowerCube>();
-                CubeScript.damage += this.recoverNum;
+                CubeScript.changeDamage( this.recoverNum);
             }
         }
-        Debug.Log(recoverCube.Count);
+        //Debug.Log(recoverCube.Count);
     }
     
+    /// <summary>
+    /// 恢复净化塔范围内的塔台的恢复值
+    /// </summary>
     private void resetCube()
     {
         for(int i = 0; i < recoverCube.Count; i++)
         {
             TowerCube CubeScript = recoverCube[i].GetComponent<TowerCube>();
-            CubeScript.damage -= this.recoverNum;
+            CubeScript.changeDamage(-this.recoverNum);
         }
     }
 }

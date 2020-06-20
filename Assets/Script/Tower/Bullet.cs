@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     private Tower fatherTower;
     private Transform mTarget;
     public float speed=30.0f;//子弹速度
-    public float damageNum = 50.0f;
+    public float damageNum = 10.0f;
     public void SetTarget(Transform target)
     {
         mTarget = target;
@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //若目标在子弹到达前已死则子弹自我摧毁，攻击塔cd重置
         if (mTarget == null || !mTarget.GetComponent<EnemyHealth>().isAlive()) //增加了isAlive的判定
         {
             fatherTower.ResetCountDown();//让塔的冷却降为0
@@ -51,7 +52,7 @@ public class Bullet : MonoBehaviour
         EnemyHealth enemyHp = mTarget.GetComponent<EnemyHealth>();
         if (enemyHp != null && enemyHp.isAlive())//增加了isAlive(),因为现在enemy在空血时依旧可能存在
         {
-            Debug.Log("扣血了");
+            Debug.Log("扣血："+damageNum);
             enemyHp.Damage(damageNum);
         }
     }

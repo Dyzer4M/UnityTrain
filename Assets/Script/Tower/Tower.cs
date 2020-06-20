@@ -12,7 +12,7 @@ public class Tower : MonoBehaviour
     public Transform bullet;
     public GameObject bulletPrefab;//子弹的主体
     public float rotSpeed = 10;
-    public float bulletRate = 2f;//发射子弹的速度
+    public float bulletRate = 2f;//发射子弹的速度,x发/s
     private float countDown = 0;
     private Animator anim;
     //private ParticleSystem ps;
@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
-        countDown = 1 / bulletRate;
+        countDown = 1 / bulletRate; //发射CD
         anim.SetBool("Active", true);
     }
 
@@ -48,7 +48,7 @@ public class Tower : MonoBehaviour
             bullet.damageNum = damage;
             if (bullet == null)
             {
-                bulletGo.AddComponent<Bullet>();
+                bullet = bulletGo.AddComponent<Bullet>();
             }
             bullet.SetTarget(attackTarget);
             bullet.SetFather(this) ;

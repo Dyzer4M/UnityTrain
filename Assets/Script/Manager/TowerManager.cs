@@ -21,8 +21,8 @@ public class TowerManager : MonoBehaviour
     public Text ATPText;
     public Animator ATPChangeAnimation;
     private float time=0;
-    public int ATPTimePerIncrease;
-    public int ATPCountPerIncrease;
+    public int ATPTimePerIncrease = 1;  //每次ATP增加时间间隔
+    public int ATPCountPerIncrease = 1; //每次ATP增加数值 
 
     //更新面板
     public GameObject UpgradeCanves;
@@ -47,7 +47,7 @@ public class TowerManager : MonoBehaviour
         if(tower.type==TowerType.AttackTower)
             TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
         if(tower.type==TowerType.RecoverTower)
-            TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
+            TowerDescription.GetComponent<Text>().text = "Recover Value: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
     }
     private void Update()
     {
@@ -74,7 +74,7 @@ public class TowerManager : MonoBehaviour
                     //得到点击的cube
                     TowerCube cube = hit.collider.GetComponent<TowerCube>();
                     //建造条件有三个必须满足
-                    //选了塔
+                    //选了部署池中的塔
                     //选中的cube没有被使用
                     //选中的cube没有被感染
                     if (selectedTower!=null && cube.TowerCubeOn == null && cube.CubeHp>0)
@@ -111,8 +111,9 @@ public class TowerManager : MonoBehaviour
                     //有炮塔   做升级或拆迁处理
                     else if(cube.TowerCubeOn != null)
                     {
-                        //是否选中同一炮塔并且画布是否被使用
-                        if(cube == SelectedTowerObject && UpgradeCanves.activeInHierarchy)
+                        TowerDescriUpdate(selectedTower);
+                        //若该方块已处于选中状态，再次选中会隐藏升级界面
+                        if (cube == SelectedTowerObject && UpgradeCanves.activeInHierarchy)
                         {
                             HideUpgradeUI();
                         }
