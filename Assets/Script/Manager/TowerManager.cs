@@ -44,10 +44,11 @@ public class TowerManager : MonoBehaviour
 
     void TowerDescriUpdate(TowerData tower)
     {
+        
         if(tower.type==TowerType.AttackTower)
-            TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
+            TowerDescription.GetComponentInChildren<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
         if(tower.type==TowerType.RecoverTower)
-            TowerDescription.GetComponent<Text>().text = "Damage: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
+            TowerDescription.GetComponentInChildren<Text>().text = "Damage: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
     }
     private void Update()
     {
@@ -208,6 +209,7 @@ public class TowerManager : MonoBehaviour
     }
     public void OnTowerChoseButtonDown()
     {
+
         TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
         for(int i = 0; i < TowerToggle.transform.childCount; i++)
         {

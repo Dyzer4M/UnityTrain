@@ -17,7 +17,8 @@ public class RecoverTower : MonoBehaviour
         recoverCube = new List<GameObject>();
         RecoverCube();
         anim = GetComponentInChildren<Animator>();
-        anim.SetBool("Active", true);
+        //anim.SetBool("Active", true);
+        
     }
     private void OnDestroy()
     {
@@ -26,6 +27,7 @@ public class RecoverTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
     private void OnDrawGizmosSelected()
     {
@@ -61,4 +63,6 @@ public class RecoverTower : MonoBehaviour
             CubeScript.damage -= this.recoverNum;
         }
     }
+
+
 }

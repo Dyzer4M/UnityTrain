@@ -158,10 +158,23 @@ public class TowerCube : MonoBehaviour
         }
         else
         {
-            Destroy(TowerCubeOn);
-            towerdata.TowerPrefab.GetComponent<Tower>().damage += towerdata.SplitUpdamage;
-            TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
-            CurrentSplitLevel++;
+            if (towerdata.type == TowerType.AttackTower)
+            {
+                Destroy(TowerCubeOn);
+                //Debug.Log("ATowerDamage"+towerdata.TowerPrefab.GetComponent<Tower>().damage);
+                towerdata.TowerPrefab.GetComponent<Tower>().damage += towerdata.SplitUpdamage;
+                TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
+                CurrentSplitLevel++;
+            }
+            else if (towerdata.type == TowerType.RecoverTower)
+            {
+                //Debug.Log("PtowerAR"+towerdata.TowerPrefab.GetComponent<RecoverTower>().attackRange);
+                Destroy(TowerCubeOn);
+                towerdata.TowerPrefab.GetComponent<RecoverTower>().recoverNum += towerdata.damageUpdate;
+                towerdata.TowerPrefab.GetComponent<RecoverTower>().attackRange += towerdata.rangeUpdate;
+                TowerCubeOn = GameObject.Instantiate(towerdata.SplitPrefab[CurrentSplitLevel], transform.position, Quaternion.identity);
+                CurrentSplitLevel++;
+            }
         }
         TowerDescriUpdate(towerdata);
     }

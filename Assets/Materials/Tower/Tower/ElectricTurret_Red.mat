@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ElectricTurret_Red
   m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _NORMALMAP _SPECGLOSSMAP
+  m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: a9d562fa15fa947ea834e675c0c490fc, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -81,4 +81,4 @@ Material:
     - _Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 0.79607844}
     - _EmissionColor: {r: 1.1921569, g: 0.9490196, b: 0.9490196, a: 0.36}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.3490566, g: 0.29472232, b: 0.29472232, a: 1}
+    - _SpecColor: {r: 0.11320752, g: 0.10519756, b: 0.10519756, a: 1}
