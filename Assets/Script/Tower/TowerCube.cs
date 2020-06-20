@@ -188,7 +188,6 @@ public class TowerCube : MonoBehaviour
                 TowerCubeOn.GetComponent<RecoverTower>().recoverNum += towerdata.SplitUpdamage * CurrentSplitLevel;
                 towerdata.damage += towerdata.SplitUpdamage;
             }
-
         }
         TowerDescriUpdate(towerdata);
     }

@@ -30,8 +30,9 @@ public class Tower : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0, 0.5f);
-        countDown = 1 / bulletRate; //发射CD
-        anim.SetBool("Active", true);
+
+        countDown = 1 / bulletRate;
+        //anim.SetBool("Active", true);
     }
 
     // Update is called once per frame

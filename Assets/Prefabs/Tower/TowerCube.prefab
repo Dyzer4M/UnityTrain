@@ -114,6 +114,7 @@ MonoBehaviour:
   buildCanves: {fileID: 0}
   damage: 0
   CubeHp: 100
+  TowerDescription: {fileID: 0}
 --- !u!54 &3060442273320969716
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -17,7 +17,8 @@ public class RecoverTower : MonoBehaviour
         recoverCube = new List<GameObject>();
         RecoverCube();
         anim = GetComponentInChildren<Animator>();
-        anim.SetBool("Active", true);
+        //anim.SetBool("Active", true);
+        
     }
 
     void Update()
@@ -31,6 +32,7 @@ public class RecoverTower : MonoBehaviour
 
     private void SetCube(TowerCube cube)
     {
+
         this.cubeon = cube;
     }
 
@@ -71,4 +73,6 @@ public class RecoverTower : MonoBehaviour
             CubeScript.changeDamage(-this.recoverNum);
         }
     }
+
+
 }
