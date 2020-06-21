@@ -49,7 +49,7 @@ public class TowerCube : MonoBehaviour
     }
 
     //选中的已放置的塔的面板
-    void TowerDescriUpdate(TowerData tower)
+    public void TowerDescriUpdate(TowerData tower)
     {
         if (tower.type == TowerType.AttackTower)
             TowerDescription.text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';

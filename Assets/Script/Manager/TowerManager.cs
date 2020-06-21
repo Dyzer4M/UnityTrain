@@ -44,13 +44,10 @@ public class TowerManager : MonoBehaviour
 
     void TowerDescriUpdate(TowerData tower)
     {
-        
         if(tower.type==TowerType.AttackTower)
             TowerDescription.GetComponentInChildren<Text>().text = "Damage: " + tower.damage + '\n' + "Speed: " + tower.speed + '\n' + "Range: " + tower.range + '\n';
         if(tower.type==TowerType.RecoverTower)
-
            // TowerDescription.GetComponent<Text>().text = "Recover Value: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
-
             TowerDescription.GetComponentInChildren<Text>().text = "Damage: " + tower.damage + '\n' + "Range: " + tower.range + '\n';
     }
     private void Update()
@@ -85,6 +82,7 @@ public class TowerManager : MonoBehaviour
                     {
                         if (ATP >= selectedTower.cost)
                         {
+                            HideUpgradeUI();
                             //建塔
                             MoneyUpdate(selectedTower.cost);
                             if (selectedTower.type == TowerType.AttackTower)
@@ -115,7 +113,8 @@ public class TowerManager : MonoBehaviour
                     //有炮塔   做升级或拆迁处理
                     else if(cube.TowerCubeOn != null)
                     {
-                        TowerDescriUpdate(selectedTower);
+                        cube.TowerDescriUpdate(cube.Getdata());
+                        //TowerDescriUpdate(selectedTower);
                         //若该方块已处于选中状态，再次选中会隐藏升级界面
                         if (cube == SelectedTowerObject && UpgradeCanves.activeInHierarchy)
                         {
@@ -183,7 +182,7 @@ public class TowerManager : MonoBehaviour
         {
             MoneyUpdate(selectedTower.Upcost);
             SelectedTowerObject.UpgradeTower();
-            TowerDescriUpdate(selectedTower);
+            SelectedTowerObject.TowerDescriUpdate(selectedTower);
         }
         else
         {
@@ -203,7 +202,7 @@ public class TowerManager : MonoBehaviour
         {
             MoneyUpdate(selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]);
             SelectedTowerObject.SplitTower();
-            TowerDescriUpdate(selectedTower);
+            SelectedTowerObject.TowerDescriUpdate(selectedTower);
         }
         else
         {
@@ -213,7 +212,6 @@ public class TowerManager : MonoBehaviour
     }
     public void OnTowerChoseButtonDown()
     {
-
         TowerToggle.SetActive(!TowerToggle.activeInHierarchy);
         for(int i = 0; i < TowerToggle.transform.childCount; i++)
         {
