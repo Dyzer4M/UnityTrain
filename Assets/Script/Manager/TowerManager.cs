@@ -178,7 +178,10 @@ public class TowerManager : MonoBehaviour
     public void OnUpgradeButtonDown()
     {
         selectedTower = SelectedTowerObject.Getdata();
-        if (ATP >= selectedTower.Upcost)
+        //Upgrade的三个条件：1.ATP 2.未upgrade过 3.当前分裂等级为3
+        if (ATP >= selectedTower.Upcost
+            &&!SelectedTowerObject.isUpgrade
+            && SelectedTowerObject.GetCurrentSplit() == SelectedTowerObject.GetSplitLimit())
         {
             MoneyUpdate(selectedTower.Upcost);
             SelectedTowerObject.UpgradeTower();
@@ -198,7 +201,9 @@ public class TowerManager : MonoBehaviour
     public void OnSplitButtonDown()
     {
         selectedTower = SelectedTowerObject.Getdata();
-        if (ATP >= selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()])
+        //分裂的条件：1.ATP 2.分裂等级小于SplitLimit
+        if (ATP >= selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]
+            &&SelectedTowerObject.GetCurrentSplit()<SelectedTowerObject.GetSplitLimit())
         {
             MoneyUpdate(selectedTower.SplitCost[SelectedTowerObject.GetCurrentSplit()]);
             SelectedTowerObject.SplitTower();

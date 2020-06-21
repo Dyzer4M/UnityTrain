@@ -127,21 +127,21 @@ public class TowerCube : MonoBehaviour
             switch (i)
             {
                 case 1:
-                    TowerCubeOn.GetComponent<Tower>().damage += towerdata.damageUpdate;
-                    TowerCubeOn.GetComponent<Tower>().attackRange = towerdata.TowerPrefab.GetComponent<Tower>().attackRange;
-                    TowerCubeOn.GetComponent<Tower>().bulletRate = towerdata.TowerPrefab.GetComponent<Tower>().bulletRate;
+                    TowerCubeOn.GetComponent<Tower>().damage = towerdata.damage + towerdata.damageUpdate;
+                    TowerCubeOn.GetComponent<Tower>().attackRange = towerdata.range;
+                    TowerCubeOn.GetComponent<Tower>().bulletRate = towerdata.speed;
                     towerdata.damage = (int)TowerCubeOn.GetComponent<Tower>().damage;
                     break;
                 case 2:
-                    TowerCubeOn.GetComponent<Tower>().damage = towerdata.TowerPrefab.GetComponent<Tower>().damage;
-                    TowerCubeOn.GetComponent<Tower>().attackRange += towerdata.rangeUpdate;
-                    TowerCubeOn.GetComponent<Tower>().bulletRate = towerdata.TowerPrefab.GetComponent<Tower>().bulletRate;
+                    TowerCubeOn.GetComponent<Tower>().damage = towerdata.damage;
+                    TowerCubeOn.GetComponent<Tower>().attackRange = towerdata.range + towerdata.rangeUpdate;
+                    TowerCubeOn.GetComponent<Tower>().bulletRate = towerdata.speed;
                     towerdata.range = (int)TowerCubeOn.GetComponent<Tower>().attackRange;
                     break;
                 case 3:
-                    TowerCubeOn.GetComponent<Tower>().damage = towerdata.TowerPrefab.GetComponent<Tower>().damage;
-                    TowerCubeOn.GetComponent<Tower>().bulletRate += towerdata.speedUpdate;
-                    TowerCubeOn.GetComponent<Tower>().attackRange = towerdata.TowerPrefab.GetComponent<Tower>().attackRange;
+                    TowerCubeOn.GetComponent<Tower>().damage = towerdata.damage;
+                    TowerCubeOn.GetComponent<Tower>().attackRange = towerdata.range;
+                    TowerCubeOn.GetComponent<Tower>().bulletRate = towerdata.speed + towerdata.speedUpdate;
                     towerdata.speed = (int)TowerCubeOn.GetComponent<Tower>().bulletRate;
                     break;
             }
@@ -159,9 +159,9 @@ public class TowerCube : MonoBehaviour
         //            break;
         //    }
         //}
-        TowerDescriUpdate(towerdata);
         //GameObject effect = GameObject.Instantiate(buildeffect, transform.position, Quaternion.identity);
         //Destroy(effect, 1);
+        TowerDescriUpdate(towerdata);
 
     }
 

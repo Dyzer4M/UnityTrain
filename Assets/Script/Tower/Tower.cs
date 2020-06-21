@@ -9,9 +9,7 @@ public class Tower : MonoBehaviour
     public float attackRange=4;
     public string enemyTag = "Enemy";
     public Transform attackTarget;
-    public Transform bullet;
     public GameObject bulletPrefab;//子弹的主体
-    public float rotSpeed = 10;
     public float bulletRate = 2f;//发射子弹的速度,x发/s
     private float countDown = 0;
     private Animator anim;
