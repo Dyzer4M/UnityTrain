@@ -21,6 +21,7 @@ public class RecoverTower : MonoBehaviour
         
     }
 
+
     void Update()
     {
     }
@@ -48,7 +49,7 @@ public class RecoverTower : MonoBehaviour
     private void RecoverCube()
     {
         ExistCube = GameObject.FindGameObjectsWithTag(cubeTag);
-        
+
         foreach(var cube in ExistCube)
         {
             float distance = Vector3.Distance(cube.transform.position, this.transform.position);

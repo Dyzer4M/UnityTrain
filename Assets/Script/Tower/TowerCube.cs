@@ -181,13 +181,13 @@ public class TowerCube : MonoBehaviour
 
             if (towerdata.type == TowerType.AttackTower)
             {
-                TowerCubeOn.GetComponent<Tower>().damage += towerdata.SplitUpdamage* CurrentSplitLevel;
                 towerdata.damage += towerdata.SplitUpdamage;
+                TowerCubeOn.GetComponent<Tower>().damage = towerdata.damage;
             }
             else if (towerdata.type == TowerType.RecoverTower)
             {
-                TowerCubeOn.GetComponent<RecoverTower>().recoverNum += towerdata.SplitUpdamage * CurrentSplitLevel;
                 towerdata.damage += towerdata.SplitUpdamage;
+                TowerCubeOn.GetComponent<RecoverTower>().recoverNum = towerdata.damage;
             }
         }
         TowerDescriUpdate(towerdata);

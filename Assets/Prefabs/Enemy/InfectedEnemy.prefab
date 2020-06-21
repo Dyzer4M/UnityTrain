@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9390b5a137a50340ac7a948fc162139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initHealth: 100
+  initHealth: 500
   hpBar: {fileID: 5606461397131359456}
   hpBarShowDamage: {fileID: 1266157992972360620}
 --- !u!114 &829934908369511737
@@ -529,9 +529,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDesc: {fileID: 0}
   isArrive: 0
-  infectedRadius: 5
+  infectedRadius: 3
   infectedInterval: 1
-  infectedDamge: 30
+  infectedDamge: 20
   triggerInfo: []
 --- !u!198 &4385665396502721997
 ParticleSystem:

@@ -218,14 +218,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackRange: 10
+  attackRange: 5
   enemyTag: Enemy
   attackTarget: {fileID: 0}
-  bullet: {fileID: 0}
   bulletPrefab: {fileID: 4116717127166661652, guid: ddb3875182363c948ad177770dfa60db,
     type: 3}
-  rotSpeed: 10
-  bulletRate: 10
+  bulletRate: 2
 --- !u!82 &3727148867788629553
 AudioSource:
   m_ObjectHideFlags: 0
