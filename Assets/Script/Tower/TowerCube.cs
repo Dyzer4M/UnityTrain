@@ -84,7 +84,8 @@ public class TowerCube : MonoBehaviour
         if (CubeHp <= 0)
         {
             if (TowerCubeOn != null)
-                Destroy(TowerCubeOn);
+                //Destroy(TowerCubeOn);
+                DestroyTower();
         }
     }
 

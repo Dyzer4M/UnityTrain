@@ -36,8 +36,12 @@ public class InfectedEnemy : Enemy
             if (info.time >= infectedInterval)
             {
                 info.time = 0;
-                TowerCube cube = info.cube.GetComponent<TowerCube>();
-                cube.HpSetting(-infectedDamge);
+                if (info.cube.layer == LayerMask.GetMask("TowerCube") / 32)
+                {
+                    TowerCube cube = info.cube.GetComponent<TowerCube>();
+                    Debug.Log(info.cube.name);
+                    cube.HpSetting(-infectedDamge);
+                }
             }
             triggerInfo[i] = info;
         }
