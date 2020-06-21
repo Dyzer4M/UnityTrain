@@ -488,7 +488,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -529,9 +529,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDesc: {fileID: 0}
   isArrive: 0
-  infectedRadius: 3
+  infectedRadius: 5
   infectedInterval: 1
-  infectedDamge: 10
+  infectedDamge: 30
   triggerInfo: []
 --- !u!198 &4385665396502721997
 ParticleSystem:
