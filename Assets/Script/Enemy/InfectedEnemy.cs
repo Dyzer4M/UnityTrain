@@ -8,7 +8,7 @@ public struct TriggerInfo
     public GameObject cube;
     public float time;
 }
-
+[RequireComponent(typeof(SphereCollider))]
 public class InfectedEnemy : Enemy
 {
     public float infectedRadius;
@@ -18,6 +18,9 @@ public class InfectedEnemy : Enemy
     new void Awake()
     {
         base.Awake();
+        SphereCollider collider = gameObject.GetComponent<SphereCollider>();
+        collider.isTrigger = true;
+        collider.radius = infectedRadius;
     }
     // Start is called before the first frame update
     new void Start()

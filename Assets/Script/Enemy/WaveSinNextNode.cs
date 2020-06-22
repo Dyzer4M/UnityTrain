@@ -12,7 +12,7 @@ public class WaveSinNextNode : SingNextNode
     {
         SphereCollider collider = gameObject.GetComponent<SphereCollider>();
         collider.isTrigger = true;
-        collider.radius = 2;
+        collider.radius = 0.5f;
         
     }
 

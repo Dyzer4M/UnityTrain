@@ -24,11 +24,13 @@ public class MultipleNextNode : Node
                     return next[index].GetNextNode();
                 }
             }
+            
             return next[index];
         }
     }
     public override Node GetNextNode()
     {
+        Debug.Log(NextNode.gameObject.name);
         return NextNode;
     }
 }

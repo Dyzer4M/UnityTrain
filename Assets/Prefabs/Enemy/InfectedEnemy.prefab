@@ -529,7 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDesc: {fileID: 0}
   isArrive: 0
-  infectedRadius: 3
+  infectedRadius: 10
   infectedInterval: 1
   infectedDamge: 20
   triggerInfo: []
