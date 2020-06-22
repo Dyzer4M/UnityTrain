@@ -19,9 +19,12 @@ public class WaveSinNextNode : SingNextNode
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (!isInfectd)
         {
             isInfectd = true;
+            Destroy(this.transform.Find("PreEffect").gameObject);
+            this.transform.Find("AfterEffect").GetComponent<ParticleSystem>().Play();
             Wave wave = gameObject.GetComponent<Wave>();
             GameObject enemyManager = GameObject.Find("EnemyManager");
             
