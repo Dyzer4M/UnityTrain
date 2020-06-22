@@ -5214,9 +5214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72870093815ee0468f90d167a8a6f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
+  attackRange: 5
   cubeTag: TowerCube
-  recoverNum: 0
+  recoverNum: 7
 --- !u!1001 &4800947369437908113
 PrefabInstance:
   m_ObjectHideFlags: 0
