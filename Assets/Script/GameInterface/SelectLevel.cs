@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuOption : MonoBehaviour
+public class SelectLevel: MonoBehaviour
 {
-    public void StartGame()
+    public void Level1()
     {
-        SceneManager.LoadScene("SelectLevel");
+        SceneManager.LoadScene("Level_01");
     }
 
-    public void QuitGame()
+    public void Level2()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Index");
     }
 
 

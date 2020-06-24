@@ -39,4 +39,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    public void NextButton()
+    {
+        SceneManager.LoadScene("Index");
+    }
 }
